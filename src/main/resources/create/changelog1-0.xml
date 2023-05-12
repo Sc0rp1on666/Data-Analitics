@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+    <changeSet id="create user entity" author="Dev_user">
+        <createTable tableName="user">
+            <column name="user_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="idnp" type="varchar(13)"/>
+            <column name="seria" type="varchar(9)"/>
+            <column name="first_name" type="varchar(40)"/>
+            <column name="last_name" type="varchar(40)"/>
+            <column name="email" type="varchar(40)"/>
+            <column name="address" type="varchar(40)"/>
+            <column name="password" type="varchar(40)"/>
+            <column name="date_of_birth" type="datetime"/>
+            <column name="is_admin" type="bool"/>
+            <column name="created_date" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="add unique key" author="Dev_user">
+        <addUniqueConstraint tableName="user" columnNames="user_id"/>
+    </changeSet>
+</databaseChangeLog>
