@@ -11,13 +11,25 @@
             <column name="last_name" type="varchar(40)"/>
             <column name="email" type="varchar(40)"/>
             <column name="address" type="varchar(40)"/>
-            <column name="password" type="varchar(40)"/>
-            <column name="date_of_birth" type="datetime"/>
-            <column name="is_admin" type="bool"/>
+            <column name="password" type="varchar(256)"/>
+            <column name="date_of_birth" type="date"/>
             <column name="created_date" type="datetime"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="create role entity" author="Dev_role">
+        <createTable tableName="role">
+            <column name="user_role_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="user_role_name" type="varchar(40)"/>
+            <column name="user_id" type="int"/>
+        </createTable>
+    </changeSet>
+
     <changeSet id="add unique key" author="Dev_user">
         <addUniqueConstraint tableName="user" columnNames="user_id"/>
+    </changeSet>
+
+    <changeSet id="add unique key to role entity" author="Dev_user">
+        <addUniqueConstraint tableName="role" columnNames="user_role_id"/>
     </changeSet>
 </databaseChangeLog>

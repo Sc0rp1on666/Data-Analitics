@@ -3,6 +3,7 @@ package com.data.dao.implementation;
 import com.data.dao.interfaces.UserDao;
 import com.data.dao.mappers.UserMapper;
 import com.data.entity.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -40,7 +41,7 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
         String query =" SELECT * FROM user where user_id=?";
         try {
             return getJdbcTemplate().queryForObject(query, new UserMapper(), id);
-        }catch (SQLException ex){
+        }catch (SQLException | EmptyResultDataAccessException ex){
             ex.printStackTrace();
         }
         return null;
@@ -59,13 +60,17 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
     @Override
     public void create(User user) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO user VALUES ( default , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
+        String query = "INSERT INTO user VALUES ( default , ? , ? , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
         try{getJdbcTemplate().update( con -> {
             PreparedStatement prepstm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            prepstm.setString(1,user.getFirstName());
-            prepstm.setString(2,user.getLastName());
-            prepstm.setString(3,user.getEmail());
-            prepstm.setString(4,user.getPassword());
+            prepstm.setString(1,user.getIdnp());
+            prepstm.setString(2,user.getSeria());
+            prepstm.setString(3,user.getFirstName());
+            prepstm.setString(4,user.getLastName());
+            prepstm.setString(5,user.getEmail());
+            prepstm.setString(6,user.getAddress());
+            prepstm.setString(7,user.getPassword());
+            prepstm.setDate(8,user.getDateOfBirth());
             return prepstm;
         }, keyHolder);
         } catch (SQLException ex) {
@@ -75,12 +80,15 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
 
     @Override
     public void update(User user, int id) {
-        String query ="UPDATE user SET first_name=? last_name=? email=? password=? WHERE user_id=?";
+        String query ="UPDATE user SET idnp=? seria=? first_name=? last_name=? email=? address=? password=? WHERE user_id=?";
         try{
             getJdbcTemplate().update(query,
+                    user.getIdnp(),
+                    user.getSeria(),
                     user.getFirstName(),
                     user.getLastName(),
                     user.getEmail(),
+                    user.getAddress(),
                     user.getPassword(),
                     id);
         } catch (SQLException ex) {

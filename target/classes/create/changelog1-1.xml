@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+    <changeSet id="insert values into user" author="Dev_user">
+    <insert tableName="user">
+        <column name="user_id" type="int" value="1"/>
+        <column name="idnp" type="varchar(13)" value="2000473519235"/>
+        <column name="seria" type="varchar(9)" value="B01759124"/>
+        <column name="first_name" type="varchar(40)" value="Vasia"/>
+        <column name="last_name" type="varchar(40)" value="Pupkin"/>
+        <column name="email" type="varchar(40)" value="vasia.pupkin@gmail.com"/>
+        <column name="address" type="varchar(40)" value="str.Rozelor 19"/>
+        <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+        <column name="date_of_birth" type="date" value="1973-03-21"/>
+        <column name="created_date" type="datetime" value="2023-06-01 14:13:25"/>
+    </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role" author="2">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="1"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
