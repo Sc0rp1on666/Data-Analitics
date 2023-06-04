@@ -19,11 +19,4 @@ public class UserController {
     List<User> getAllUsers(){
       return  userService.getAllUsers();
     }
-    @GetMapping("/deleteUser")
-    HashMap<String, String> deleteUser(@RequestParam("user_id")int userId){
-        HashMap<String, String> response = new HashMap<>();
-        userService.deleteUser(userId);
-        response.put("message","user deleted");
-        return response;
-    }
 }

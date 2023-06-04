@@ -73,15 +73,6 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
         }
     }
 
-    @Override
-    public void delete(int id) {
-        String query = "DELETE * FROM user WHERE user_role_id=?";
-        try{
-            getJdbcTemplate().update(query,id);
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
-    }
 
     @Override
     public List<Role> getRoles(int userId) {

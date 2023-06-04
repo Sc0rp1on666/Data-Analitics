@@ -11,6 +11,7 @@
         <column name="last_name" type="varchar(40)" value="Pupkin"/>
         <column name="email" type="varchar(40)" value="vasia.pupkin@gmail.com"/>
         <column name="address" type="varchar(40)" value="str.Rozelor 19"/>
+        <column name="secret_word" type="varchar(40)" value="pupkinMonster"/>
         <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
         <column name="date_of_birth" type="date" value="1973-03-21"/>
         <column name="created_date" type="datetime" value="2023-06-01 14:13:25"/>

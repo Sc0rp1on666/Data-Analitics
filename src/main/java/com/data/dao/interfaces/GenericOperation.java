@@ -8,5 +8,4 @@ public interface GenericOperation<T> {
     T getById(int id);
     void create(T entity);
     void update(T entity, int id);
-    void delete(int id);
 }

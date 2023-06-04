@@ -11,13 +11,14 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String secretWord;
     private String address;
     private String password;
     private Date dateOfBirth;
     private Date createdDate;
 
     public User(int userId, List<Role> role, String idnp, String seria, String firstName, String lastName,
-                String email, String address, String password, Date dateOfBirth, Date createdDate) {
+                String email, String address, String secretWord, String password, Date dateOfBirth, Date createdDate) {
         this.userId = userId;
         this.role = role;
         this.idnp = idnp;
@@ -26,6 +27,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.address = address;
+        this.secretWord=secretWord;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.createdDate = createdDate;
@@ -38,6 +40,7 @@ public class User {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
     public List<Role> getRole() {
         return role;
     }
@@ -76,6 +79,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSecretWord() {
+        return secretWord;
+    }
+
+    public void setSecretWord(String secretWord) {
+        this.secretWord = secretWord;
     }
 
     public Date getCreatedDate() {

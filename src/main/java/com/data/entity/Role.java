@@ -1,6 +1,7 @@
 package com.data.entity;
 
 public class Role {
+    //list of priviligies , posibility to add and remove them
     private int userRoleId;
     private String userRoleName;
     private int userId;

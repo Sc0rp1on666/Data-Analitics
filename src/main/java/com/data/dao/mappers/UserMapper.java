@@ -20,6 +20,7 @@ public class UserMapper implements RowMapper<User> {
             rs.getString("email"),
             rs.getString("address"),
             rs.getString("password"),
+            rs.getString("secret_word"),
             rs.getDate("date_of_birth"),
             rs.getDate("created_date")
         );

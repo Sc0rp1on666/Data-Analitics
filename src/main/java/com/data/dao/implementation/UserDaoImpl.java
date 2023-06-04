@@ -95,14 +95,4 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
             ex.printStackTrace();
         }
     }
-
-    @Override
-    public void delete(int id) {
-        String query = " DELETE FROM user WHERE user_id=?";
-        try{
-            getJdbcTemplate().update(query,id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
