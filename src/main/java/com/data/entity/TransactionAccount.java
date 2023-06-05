@@ -19,6 +19,9 @@ public class TransactionAccount {
         this.BIC = BIC;
     }
 
+    public TransactionAccount() {
+    }
+
     public int getTransactionAccountId() {
         return transactionAccountId;
     }

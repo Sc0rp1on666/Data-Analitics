@@ -3,6 +3,7 @@ package com.data.dao.implementation;
 import com.data.dao.interfaces.RoleDao;
 import com.data.dao.mappers.RoleMapper;
 import com.data.entity.Role;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -22,10 +23,10 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
     }
 
     @Override
-    public List<Role> getAllRecords() {
-        String query ="SELECT * FROM roles";
+    public List<Role> getAllRecords(int elementsPerPage, int pageIndex) {
+        String query ="SELECT * FROM roles LIMIT = ? OFFSET = ?";
         try {
-            return getJdbcTemplate().query(query, new RoleMapper());
+            return getJdbcTemplate().query(query, new RoleMapper(),elementsPerPage,(pageIndex-1)*elementsPerPage);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -71,6 +72,16 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public int countAllRecords() {
+        String query = "SELECT count(*) FROM role";
+        try {
+            return getJdbcTemplate().queryForObject(query, Integer.class);
+        } catch (SQLException|EmptyResultDataAccessException ex) {
+           ex.printStackTrace();
+        }return 0;
     }
 
 

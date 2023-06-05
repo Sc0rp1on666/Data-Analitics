@@ -11,8 +11,9 @@ public class CustomConfigurationImpl extends GenericOperationImpl<CustomConfigur
         super(dataSource);
     }
 
+
     @Override
-    public List<CustomConfiguration> getAllRecords() {
+    public List<CustomConfiguration> getAllRecords(int elementsPerPage, int pageIndex) {
         return null;
     }
 
@@ -29,5 +30,10 @@ public class CustomConfigurationImpl extends GenericOperationImpl<CustomConfigur
     @Override
     public void update(CustomConfiguration entity, int id) {
 
+    }
+
+    @Override
+    public int countAllRecords() {
+        return 0;
     }
 }

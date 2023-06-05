@@ -7,9 +7,7 @@ public class Audit {
     // data that was changed before and after
     private int auditId;
     private String operationName;
-
     private String initialValue;
-
     private String changedValue;
     private Date createdDate;
     private String createdBy;

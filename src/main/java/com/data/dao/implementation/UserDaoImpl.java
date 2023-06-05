@@ -23,10 +23,10 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
     }
 
     @Override
-    public List<User> getAllRecords() {
-        String query = "SELECT * FROM user";
+    public List<User> getAllRecords(int elementsPerPage,int pageIndex) {
+        String query = "SELECT * FROM user LIMIT ? OFFSET ?";
         try {
-            List<User> testUsers = getJdbcTemplate().query(query, new UserMapper());
+            List<User> testUsers = getJdbcTemplate().query(query, new UserMapper(),elementsPerPage,(pageIndex-1)*elementsPerPage);
             return getJdbcTemplate().query(query, new UserMapper());
         }catch (NullPointerException ex){
             ex.printStackTrace();
@@ -94,5 +94,10 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public int countAllRecords() {
+        return 0;
     }
 }

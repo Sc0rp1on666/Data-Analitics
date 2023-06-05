@@ -1,6 +1,7 @@
 package com.data.service.ServiceImpl;
 
 import com.data.dao.implementation.UserDaoImpl;
+import com.data.entity.Page;
 import com.data.entity.User;
 import com.data.service.ServiceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,7 @@ public class UserServiceImpl implements UserService {
     private UserDaoImpl userDao;
 
     @Override
-    public List<User> getAllUsers() {
-        return userDao.getAllRecords();
-    }
-    @Override
-    public void deleteUser(int id){
-         userDao.delete(id);
+    public Page<User> getAllUsers(int elementsPerPage, int pageIndex) {
+        return new Page<>(userDao.getAllRecords(elementsPerPage, pageIndex), userDao.countAllRecords(), pageIndex,elementsPerPage);
     }
 }

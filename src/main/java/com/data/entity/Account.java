@@ -1,19 +1,19 @@
 package com.data.entity;
 
 import java.util.Currency;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
-//TODO: please review SOLID principle in special S
+//TODO: please review SOLID principle in special S, add userId in DB version control
 public class Account {
     //should be unique based on this ID will be made transaction, read documentation IBAN
    private int accountId;
    private int userId;
-
    private List<CustomConfiguration> accountConfiguration;
    private String IBAN;
    private String accountType;
    private String accountStatus;
+   //TODO: account amount not needed if there is a list of currency
    private double accountAmount;
    private Date expiryDate;
    private Date createdDate;
@@ -49,6 +49,9 @@ public class Account {
       this.expiryDate = expiryDate;
       this.createdDate = createdDate;
       this.currency = currency;
+   }
+
+   public Account() {
    }
 
    public int getAccountId() {
