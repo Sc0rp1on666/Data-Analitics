@@ -31,6 +31,14 @@ public class CustomUserDetails implements UserDetails {
         return authorities;
     }
 
+    public void setAccountNotLocked(Boolean accountNotLocked){
+        this.accountNotLocked=accountNotLocked;
+    }
+
+    public boolean getAccountNotLocked(){
+        return this.accountNotLocked;
+    }
+
     @Override
     public String getPassword() {
         return password;
@@ -43,7 +51,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
@@ -53,7 +61,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

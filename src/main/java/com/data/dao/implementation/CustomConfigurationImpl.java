@@ -23,8 +23,8 @@ public class CustomConfigurationImpl extends GenericOperationImpl<CustomConfigur
     }
 
     @Override
-    public void create(CustomConfiguration entity) {
-
+    public CustomConfiguration create(CustomConfiguration entity) {
+    return null;
     }
 
     @Override

@@ -9,6 +9,6 @@ public interface AccountService {
 
     public Page<Account> getPagedAccount(int pageIndex, int elementsPerPage);
 
-    public Account getAccountById(int id);
+    public Account getAccountById(int accountId);
 
 }

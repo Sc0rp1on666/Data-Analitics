@@ -58,7 +58,7 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
     }
 
     @Override
-    public void create(User user) {
+    public User create(User user) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "INSERT INTO user VALUES ( default , ? , ? , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
         try{getJdbcTemplate().update( con -> {
@@ -73,9 +73,10 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
             prepstm.setDate(8,user.getDateOfBirth());
             return prepstm;
         }, keyHolder);
+            return user;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }return null;
     }
 
     @Override

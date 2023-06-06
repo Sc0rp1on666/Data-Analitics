@@ -47,8 +47,10 @@ public class SecurityConfiguration{
 
     protected void configuration(HttpSecurity http) throws Exception{
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/user**")
-                .permitAll().anyRequest().authenticated()
+                .cors().disable()
+                .authorizeRequests().antMatchers("/user**").permitAll().anyRequest().authenticated()
+                .and()
+                .authorizeRequests().antMatchers("/auth**").permitAll().anyRequest().authenticated()
                 //TODO: add form login once it will be done, for now make an authorize controller, get rid of WebSecurityAdapter
                 .and()
                 .logout().invalidateHttpSession(true)

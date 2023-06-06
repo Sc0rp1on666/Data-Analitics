@@ -42,7 +42,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
     }
 
     @Override
-    public void create(Account account) {
+    public Account create(Account account) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "INSERT INTO account VALUES(default , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
         try {
@@ -56,9 +56,10 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
                 prepstm.setDate(6, account.getExpiryDate());
                 return prepstm;
             }, keyHolder);
+            return account;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }return null;
     }
 
     @Override

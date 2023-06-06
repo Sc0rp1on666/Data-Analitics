@@ -1,6 +1,6 @@
 package com.data.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Transaction {
     private long transactionId;
@@ -10,6 +10,8 @@ public class Transaction {
     private TransactionAccount senderAccount;
 
     private TransactionAccount receiverAccount;
+    //review this, it might be wrong
+    private double transactionAmount;
 
     //from separate entity
 //    private String CurrencyCode;
@@ -24,13 +26,13 @@ public class Transaction {
 //    private String modifiedBy;
 
 
-    public Transaction(long transactionId, String transactionType, String transactionStatus,
-                       TransactionAccount senderAccount, TransactionAccount receiverAccount, Date transactionDate) {
+    public Transaction(long transactionId, String transactionType, String transactionStatus, TransactionAccount senderAccount, TransactionAccount receiverAccount, double transactionAmount, Date transactionDate) {
         this.transactionId = transactionId;
         this.transactionType = transactionType;
         this.transactionStatus = transactionStatus;
         this.senderAccount = senderAccount;
         this.receiverAccount = receiverAccount;
+        this.transactionAmount = transactionAmount;
         this.transactionDate = transactionDate;
     }
 
@@ -80,5 +82,13 @@ public class Transaction {
 
     public void setTransactionDate(Date transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public double getTransactionAmount() {
+        return transactionAmount;
+    }
+
+    public void setTransactionAmount(double transactionAmount) {
+        this.transactionAmount = transactionAmount;
     }
 }

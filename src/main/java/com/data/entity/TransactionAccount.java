@@ -4,15 +4,16 @@ package com.data.entity;
 public class TransactionAccount {
     private int transactionAccountId;
     //not needed
-    private String fullName;
+    //remade fullName to accountId
+    private int accountId;
     private String IBAN;
     private String bankName;
     private String bankAddress;
     private String BIC;
 
-    public TransactionAccount(int transactionAccountId, String fullName, String IBAN, String bankName, String bankAddress, String BIC) {
+    public TransactionAccount(int transactionAccountId, int accountId, String IBAN, String bankName, String bankAddress, String BIC) {
         this.transactionAccountId = transactionAccountId;
-        this.fullName = fullName;
+        this.accountId = accountId;
         this.IBAN = IBAN;
         this.bankName = bankName;
         this.bankAddress = bankAddress;
@@ -30,12 +31,12 @@ public class TransactionAccount {
         this.transactionAccountId = transactionAccountId;
     }
 
-    public String getFullName() {
-        return fullName;
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public String getIBAN() {

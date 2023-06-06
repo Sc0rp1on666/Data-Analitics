@@ -10,9 +10,13 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
+
+
 @Component
 public class JwtTokenProvider {
     private String secret;
@@ -57,6 +61,7 @@ public class JwtTokenProvider {
 
     public Authentication getAuthentication(String token){
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(token).parseClaimsJws(token);
+        List<? extends GrantedAuthority> authorities = claimsJws.getBody().get("roles", ArrayList.class);
         return new UsernamePasswordAuthenticationToken(claimsJws.getBody().getSubject(),"",null);
     }
 }

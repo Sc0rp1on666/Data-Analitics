@@ -30,7 +30,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account getAccountById(int id) {
-        return  accountDao.getById(id);
+    public Account getAccountById(int accountId) {
+        return  accountDao.getById(accountId);
     }
 }

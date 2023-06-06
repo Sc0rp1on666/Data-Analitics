@@ -45,7 +45,7 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
     }
 
     @Override
-    public void create(Role role) {
+    public Role create(Role role) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "INSERT INTO role VALUES(default , ? , ?)";
         try {
@@ -55,9 +55,10 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
                 prepstm.setInt(2,role.getUserId());
                 return prepstm;
             },keyHolder);
+            return role;
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }return null;
     }
 
     @Override
