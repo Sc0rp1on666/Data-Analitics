@@ -23,7 +23,7 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
     }
 
     @Override
-    public List<User> getAllRecords(int elementsPerPage,int pageIndex) {
+    public List<User> getListOfRecords(int elementsPerPage, int pageIndex) {
         String query = "SELECT * FROM user LIMIT ? OFFSET ?";
         try {
             List<User> testUsers = getJdbcTemplate().query(query, new UserMapper(),elementsPerPage,(pageIndex-1)*elementsPerPage);

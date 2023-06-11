@@ -13,7 +13,7 @@ public class TransactionServiceImpl implements TransactionService {
     private TransactionDaoImpl transactionDao;
     @Override
     public Page<Transaction> getPagedTransactions(int elementsPerPage, int pageIndex) {
-        return new Page<>(transactionDao.getAllRecords(elementsPerPage,pageIndex),transactionDao.countAllRecords(),elementsPerPage,pageIndex);
+        return new Page<>(transactionDao.getListOfRecords(elementsPerPage,pageIndex),transactionDao.countAllRecords(),elementsPerPage,pageIndex);
     }
 
     @Override

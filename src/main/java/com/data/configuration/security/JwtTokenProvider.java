@@ -45,7 +45,7 @@ public class JwtTokenProvider {
     }
     public String extractTokenFromRequest(HttpServletRequest request){
         String bearer = request.getHeader("Authorization");
-        if(StringUtils.hasText(bearer)&&bearer.startsWith("Bearer ")){
+        if(StringUtils.hasText(bearer)&& bearer.startsWith("Bearer ")){
             return bearer.substring(7);
         }return null;
     }

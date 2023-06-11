@@ -10,7 +10,7 @@ public class Transaction {
     private TransactionAccount senderAccount;
 
     private TransactionAccount receiverAccount;
-    //review this, it might be wrong
+    //currency type add
     private double transactionAmount;
 
     //from separate entity
@@ -19,7 +19,7 @@ public class Transaction {
     //separate entity transaction account, bank related
 //    private String fullName;
 //    private long IBAN;
-
+    //TODO: add more date in dependency of a status
     private Date transactionDate;
     //audit
 //    private Date lastUpdate;

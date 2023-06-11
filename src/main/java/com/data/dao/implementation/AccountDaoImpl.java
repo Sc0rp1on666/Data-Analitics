@@ -21,7 +21,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
     }
 
     @Override
-    public List<Account> getAllRecords(int elementsPerPage, int pageIndex) {
+    public List<Account> getListOfRecords(int elementsPerPage, int pageIndex) {
         String query = "SELECT * FROM account LIMIT = ? OFFSET = ?";
         try {
             return getJdbcTemplate().query(query, new AccountMapper(), elementsPerPage, (pageIndex - 1) * elementsPerPage);

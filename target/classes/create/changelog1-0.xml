@@ -54,14 +54,26 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create transaction entity" author="Dev_transaction">
+        <createTable tableName="transaction">
+            <column name="transaction_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="transaction_type" type="varchar(20)"/>
+            <column name="transaction_status" type="varchar(20)"/>
+            <column name="transaction_sender_account_id" type="int"/>
+            <column name="transaction_receiver_account_id" type="int"/>
+            <column name="transaction_amount" type="double"/>
+            <column name="transaction_date" type="date"/>
+        </createTable>
+    </changeSet>
+
     <changeSet id="create transaction account entity" author="Dev_trans_account">
         <createTable tableName="transaction_account">
             <column name="transaction_account_id" type="int" autoIncrement="${autoIncrement}"/>
-            <column name="full_name" type="varchar(60)"/>
+            <column name="account_id" type="int"/>
             <column name="IBAN" type="varchar(40)"/>
             <column name="bank_name" type="varchar(50)"/>
             <column name="bank_address" type="varchar(50)"/>
-            <column name="SWIFT" type="varchar(11)"/>
+            <column name="BIC" type="varchar(11)"/>
         </createTable>
     </changeSet>
 

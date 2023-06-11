@@ -23,8 +23,9 @@ public class AccountController {
                                           @RequestParam("elementsPerPage") int elementsPerPage){
         return accountService.getPagedAccount(pageIndex,elementsPerPage);
     }
-    //TODO: remake this, make it search by IDNP or smth else
+    //TODO: remake this, make it search by userId, list of accounts based on user(can have several account in diffrent currency and transactions)
     @GetMapping("/getById")
+    //TODO: make sure that logged user can have access only to his account
     public Account getAccountById(@RequestParam("accountId")int accountId){
         return accountService.getAccountById(accountId);
     }

@@ -13,7 +13,7 @@ public class CustomConfigurationImpl extends GenericOperationImpl<CustomConfigur
 
 
     @Override
-    public List<CustomConfiguration> getAllRecords(int elementsPerPage, int pageIndex) {
+    public List<CustomConfiguration> getListOfRecords(int elementsPerPage, int pageIndex) {
         return null;
     }
 

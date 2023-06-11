@@ -23,7 +23,7 @@ public class RoleDaoImpl extends GenericOperationImpl<Role> implements RoleDao {
     }
 
     @Override
-    public List<Role> getAllRecords(int elementsPerPage, int pageIndex) {
+    public List<Role> getListOfRecords(int elementsPerPage, int pageIndex) {
         String query ="SELECT * FROM roles LIMIT = ? OFFSET = ?";
         try {
             return getJdbcTemplate().query(query, new RoleMapper(),elementsPerPage,(pageIndex-1)*elementsPerPage);

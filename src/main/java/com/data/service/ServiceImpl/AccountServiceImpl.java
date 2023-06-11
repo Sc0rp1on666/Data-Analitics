@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Page<Account> getPagedAccount(int pageIndex, int elementsPerPage) {
-       return new Page<> (accountDao.getAllRecords(pageIndex,elementsPerPage),accountDao.countAllRecords(),pageIndex,elementsPerPage);
+       return new Page<> (accountDao.getListOfRecords(pageIndex,elementsPerPage),accountDao.countAllRecords(),pageIndex,elementsPerPage);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     }
 
     @Override
-    public List<Transaction> getAllRecords(int elementsPerPage, int pageIndex) {
+    public List<Transaction> getListOfRecords(int elementsPerPage, int pageIndex) {
        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id ,tr.transaction_amount ,tr.transaction_date, \n"+
         "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id , ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC, \n"+
         "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id , ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+

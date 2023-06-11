@@ -6,6 +6,7 @@ public class TransactionAccount {
     //not needed
     //remade fullName to accountId
     private int accountId;
+    //TODO: add bank card number and bank card vendor(can have multiple cards with multiple vendors)
     private String IBAN;
     private String bankName;
     private String bankAddress;
