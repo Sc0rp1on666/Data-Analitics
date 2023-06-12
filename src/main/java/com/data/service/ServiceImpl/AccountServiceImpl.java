@@ -6,6 +6,8 @@ import com.data.entity.Page;
 import com.data.service.ServiceInterfaces.AccountService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountServiceImpl implements AccountService {
     private AccountDaoImpl accountDao;
@@ -30,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account getAccountById(int accountId) {
-        return  accountDao.getById(accountId);
+    public List<Account> getAccountById(int userId) {
+        return  accountDao.getUserAccount(userId);
     }
 }

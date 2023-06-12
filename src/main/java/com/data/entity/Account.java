@@ -17,23 +17,9 @@ public class Account {
    private double accountAmount;
    private Date expiryDate;
    private Date createdDate;
-   //this is user fields, user profile
-//   private long IDNP;
-//   private String accountHolderFirstName;
-//   private String accountHolderLastName;
-//   private String accountSecretWord;
-   //
 
 //account currency should be separate entity, review about conversion, should be a list of currency
    private List<Currency> currency;
-
-
-//account configuration, amount limit per transaction, optional, add link to custom config
-//   private int transactionLimit;
-
-   //audit entity for reviewing actions
-//   private Date lastModifiedDate;
-//   private String modifiedBy;
 
 
    public Account(int accountId, int userId, List<CustomConfiguration> accountConfiguration, String IBAN,

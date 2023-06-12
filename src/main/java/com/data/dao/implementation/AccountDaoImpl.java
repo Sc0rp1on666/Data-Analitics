@@ -30,6 +30,15 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
         }return Collections.EMPTY_LIST;
     }
 
+    public List<Account> getUserAccount(int userId){
+        String query ="SELECT * FROM account WHERE userId=?";
+        try{
+            return getJdbcTemplate().query(query,new AccountMapper(), userId);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }return Collections.EMPTY_LIST;
+    }
+
     @Override
     public Account getById(int id) {
         String query = "SELECT * FROM account WHERE account_id=?";

@@ -1,5 +1,6 @@
 package com.data.service.ServiceInterfaces;
 
+import com.data.DtoObjects.FundsTransferDTO;
 import com.data.entity.Page;
 import com.data.entity.Transaction;
 
@@ -12,4 +13,5 @@ public interface TransactionService {
 
     public Transaction createNewTransaction(Transaction transaction);
 
+    public void transferFundsToAnotherAccount(FundsTransferDTO fundsTransferDTO);
 }

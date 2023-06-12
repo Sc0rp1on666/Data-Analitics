@@ -6,15 +6,21 @@ public class TransactionAccount {
     //not needed
     //remade fullName to accountId
     private int accountId;
+
+    private long cardNumber;
+    private String cardVendorType;
     //TODO: add bank card number and bank card vendor(can have multiple cards with multiple vendors)
     private String IBAN;
     private String bankName;
     private String bankAddress;
     private String BIC;
 
-    public TransactionAccount(int transactionAccountId, int accountId, String IBAN, String bankName, String bankAddress, String BIC) {
+    public TransactionAccount(int transactionAccountId, int accountId, long cardNumber,
+                              String cardVendorType, String IBAN, String bankName, String bankAddress, String BIC) {
         this.transactionAccountId = transactionAccountId;
         this.accountId = accountId;
+        this.cardNumber = cardNumber;
+        this.cardVendorType = cardVendorType;
         this.IBAN = IBAN;
         this.bankName = bankName;
         this.bankAddress = bankAddress;
@@ -22,6 +28,23 @@ public class TransactionAccount {
     }
 
     public TransactionAccount() {
+    }
+
+
+    public long getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(long cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardVendorType() {
+        return cardVendorType;
+    }
+
+    public void setCardVendorType(String cardVendorType) {
+        this.cardVendorType = cardVendorType;
     }
 
     public int getTransactionAccountId() {

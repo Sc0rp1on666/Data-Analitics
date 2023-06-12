@@ -19,7 +19,9 @@ public class Transaction {
     //separate entity transaction account, bank related
 //    private String fullName;
 //    private long IBAN;
-    //TODO: add more date in dependency of a status
+    //TODO: add more date in dependency of a status, possible statuses:
+    // Invalid or Incomplete, Canceled by customer, refused, order stored(on P2P transfer), authorized, refund ???
+    //not enough funds error,saved success, pending
     private Date transactionDate;
     //audit
 //    private Date lastUpdate;
