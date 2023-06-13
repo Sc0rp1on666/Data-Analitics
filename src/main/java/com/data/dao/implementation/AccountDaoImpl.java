@@ -53,7 +53,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
     @Override
     public Account create(Account account) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO account VALUES(default , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
+        String query = "INSERT INTO account VALUES(default , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
         try {
             getJdbcTemplate().update(con -> {
                 PreparedStatement prepstm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -61,8 +61,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
                 prepstm.setString(2, account.getIBAN());
                 prepstm.setString(3, account.getAccountType());
                 prepstm.setString(4, account.getAccountStatus());
-                prepstm.setDouble(5, account.getAccountAmount());
-                prepstm.setDate(6, account.getExpiryDate());
+                prepstm.setDate(5, account.getExpiryDate());
                 return prepstm;
             }, keyHolder);
             return account;
@@ -73,7 +72,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
 
     @Override
     public void update(Account account, int id) {
-        String query = "UPDATE account SET user_id=? IBAN=? account_type=? account_status=? account_amount=?" +
+        String query = "UPDATE account SET user_id=? IBAN=? account_type=? account_status=? " +
                 " expiry_date=? WHERE account_id=?";
         try {
             getJdbcTemplate().update(query,
@@ -81,7 +80,6 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
                     account.getIBAN(),
                     account.getAccountType(),
                     account.getAccountStatus(),
-                    account.getAccountAmount(),
                     account.getExpiryDate(),
                     id
             );

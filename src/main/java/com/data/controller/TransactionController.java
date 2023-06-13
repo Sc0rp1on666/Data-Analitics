@@ -38,8 +38,8 @@ public class TransactionController {
     }
 //the object should be an transaction with some information filled in,
     @PostMapping("/transferFunds")
-    public ResponseEntity transferFundsToAnotherAccount(@RequestBody FundsTransferDTO fundsTransferDTO){
-         transactionService.transferFundsToAnotherAccount(fundsTransferDTO);
+    public ResponseEntity transferFundsToAnotherAccount(@RequestBody Transaction transaction){
+         transactionService.transferFundsToAnotherAccount(transaction);
          return ResponseEntity.ok("Transaction succeeded");
     }
 }

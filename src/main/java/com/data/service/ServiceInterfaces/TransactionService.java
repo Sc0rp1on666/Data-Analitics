@@ -13,5 +13,5 @@ public interface TransactionService {
 
     public Transaction createNewTransaction(Transaction transaction);
 
-    public void transferFundsToAnotherAccount(FundsTransferDTO fundsTransferDTO);
+    public void transferFundsToAnotherAccount(Transaction transaction);
 }

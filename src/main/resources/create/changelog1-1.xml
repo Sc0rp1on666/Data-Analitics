@@ -18,82 +18,6 @@
     </insert>
     </changeSet>
 
-    <changeSet id="insert value into role" author="2">
-        <insert tableName="role">
-            <column name="user_role_id" type="int" value="1"/>
-            <column name="user_role_name" type="varchar(40)" value="USER"/>
-            <column name="user_id" type="int" value="1"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert values into transaction account1" author="Dev_trans_account">
-        <insert tableName="transaction_account">
-            <column name="transaction_account_id" value="1"/>
-            <column name="account_id" value="1"/>
-            <column name="IBAN" value="86293473925"/>
-            <column name="bank_name" value="MoldovaBank"/>
-            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
-            <column name="BIC" value="785971829"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert values into transaction account2" author="Dev_trans_account">
-        <insert tableName="transaction_account">
-            <column name="transaction_account_id" value="2"/>
-            <column name="account_id" value="2"/>
-            <column name="IBAN" value="82203920482"/>
-            <column name="bank_name" value="MoldovaBank"/>
-            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
-            <column name="BIC" value="785971829"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert values into transaction account3" author="Dev_trans_account">
-        <insert tableName="transaction_account">
-            <column name="transaction_account_id" value="3"/>
-            <column name="account_id" value="3"/>
-            <column name="IBAN" value="85239477939239"/>
-            <column name="bank_name" value="MoldovaBank"/>
-            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
-            <column name="BIC" value="785971829"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert values into transaction account4" author="Dev_trans_account">
-        <insert tableName="transaction_account">
-            <column name="transaction_account_id" value="4"/>
-            <column name="account_id" value="4"/>
-            <column name="IBAN" value="48249834923"/>
-            <column name="bank_name" value="MoldovaBank"/>
-            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
-            <column name="BIC" value="785971829"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert into transaction value 1" author="Dev_transaction">
-        <insert tableName="transaction">
-            <column name="transaction_id" value="1"/>
-            <column name="transaction_type" value="WITHDRAW"/>
-            <column name="transaction_status" value="PENDING"/>
-            <column name="transaction_sender_account_id" value="1"/>
-            <column name="transaction_receiver_account_id" value="2"/>
-            <column name="transaction_amount" value="140.22"/>
-            <column name="transaction_date" value="2023-06-03 15:13:12.000"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="insert into transaction value 2" author="Dev_transaction">
-        <insert tableName="transaction">
-            <column name="transaction_id" value="2"/>
-            <column name="transaction_type" value="WITHDRAW"/>
-            <column name="transaction_status" value="COMPLETED"/>
-            <column name="transaction_sender_account_id" value="3"/>
-            <column name="transaction_receiver_account_id" value="4"/>
-            <column name="transaction_amount" value="1507.35"/>
-            <column name="transaction_date" value="2023-05-04 12:44:35.000"/>
-        </insert>
-    </changeSet>
-
     <changeSet id="insert values into user 2" author="Dev_user">
         <insert tableName="user">
             <column name="user_id" type="int" value="2"/>
@@ -109,15 +33,6 @@
             <column name="created_date" type="datetime" value="2023-03-14 11:22:12"/>
         </insert>
     </changeSet>
-
-    <changeSet id="insert value into role 2" author="2">
-        <insert tableName="role">
-            <column name="user_role_id" type="int" value="2"/>
-            <column name="user_role_name" type="varchar(40)" value="USER"/>
-            <column name="user_id" type="int" value="2"/>
-        </insert>
-    </changeSet>
-
 
 
     <changeSet id="insert values into user 3" author="Dev_user">
@@ -136,11 +51,120 @@
         </insert>
     </changeSet>
 
-    <changeSet id="insert value into role 3" author="2">
-        <insert tableName="role">
-            <column name="user_role_id" type="int" value="3"/>
-            <column name="user_role_name" type="varchar(40)" value="USER"/>
-            <column name="user_id" type="int" value="3"/>
+    <changeSet id="insert values into user 4" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="4"/>
+            <column name="idnp" type="varchar(13)" value="1000325231412"/>
+            <column name="seria" type="varchar(9)" value="B0043513"/>
+            <column name="first_name" type="varchar(40)" value="Jason"/>
+            <column name="last_name" type="varchar(40)" value="Statham"/>
+            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
+            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1976-12-25"/>
+            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into user 5" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="5"/>
+            <column name="idnp" type="varchar(13)" value="200003242132"/>
+            <column name="seria" type="varchar(9)" value="A0013781"/>
+            <column name="first_name" type="varchar(40)" value="Samuel"/>
+            <column name="last_name" type="varchar(40)" value="Jackson"/>
+            <column name="email" type="varchar(40)" value="samuel.jackson@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Tudor Petricanu 3/2"/>
+            <column name="secret_word" type="varchar(40)" value="SayWhatOneMoreTime"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1969-02-12"/>
+            <column name="created_date" type="datetime" value="2022-08-13 14:46:55"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into user 6" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="6"/>
+            <column name="idnp" type="varchar(13)" value="200052331412"/>
+            <column name="seria" type="varchar(9)" value="B0043433"/>
+            <column name="first_name" type="varchar(40)" value="Jason"/>
+            <column name="last_name" type="varchar(40)" value="Mamoa"/>
+            <column name="email" type="varchar(40)" value="jason.mamoa@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Petrarilor 13"/>
+            <column name="secret_word" type="varchar(40)" value="IamAquaMan"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1996-10-15"/>
+            <column name="created_date" type="datetime" value="2023-03-04 16:01:45"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into user 7" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="7"/>
+            <column name="idnp" type="varchar(13)" value="2000051351252"/>
+            <column name="seria" type="varchar(9)" value="A0000127"/>
+            <column name="first_name" type="varchar(40)" value="Gal"/>
+            <column name="last_name" type="varchar(40)" value="Gadot"/>
+            <column name="email" type="varchar(40)" value="gal.gadot@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Florarilor 12"/>
+            <column name="secret_word" type="varchar(40)" value="WonderWomen"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1987-01-13"/>
+            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into user 8" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="8"/>
+            <column name="idnp" type="varchar(13)" value="1000325231412"/>
+            <column name="seria" type="varchar(9)" value="B0043513"/>
+            <column name="first_name" type="varchar(40)" value="Christain"/>
+            <column name="last_name" type="varchar(40)" value="Bail"/>
+            <column name="email" type="varchar(40)" value="christian.bail@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Moscovei 32/3"/>
+            <column name="secret_word" type="varchar(40)" value="IAmBatman"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1976-12-25"/>
+            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into user 9" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="9"/>
+            <column name="idnp" type="varchar(13)" value="1000325231412"/>
+            <column name="seria" type="varchar(9)" value="B0043513"/>
+            <column name="first_name" type="varchar(40)" value="Jason"/>
+            <column name="last_name" type="varchar(40)" value="Statham"/>
+            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
+            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1976-12-25"/>
+            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into user 10" author="Dev_user">
+        <insert tableName="user">
+            <column name="user_id" type="int" value="10"/>
+            <column name="idnp" type="varchar(13)" value="1000325231412"/>
+            <column name="seria" type="varchar(9)" value="B0043513"/>
+            <column name="first_name" type="varchar(40)" value="Jason"/>
+            <column name="last_name" type="varchar(40)" value="Statham"/>
+            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
+            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
+            <column name="date_of_birth" type="date" value="1976-12-25"/>
+            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
         </insert>
     </changeSet>
 

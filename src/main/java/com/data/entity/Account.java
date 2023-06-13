@@ -14,7 +14,6 @@ public class Account {
    private String accountType;
    private String accountStatus;
    //TODO: account amount not needed if there is a list of currency
-   private double accountAmount;
    private Date expiryDate;
    private Date createdDate;
 
@@ -23,7 +22,7 @@ public class Account {
 
 
    public Account(int accountId, int userId, List<CustomConfiguration> accountConfiguration, String IBAN,
-                  String accountType, String accountStatus, double accountAmount, Date expiryDate, Date createdDate,
+                  String accountType, String accountStatus, Date expiryDate, Date createdDate,
                   List<Currency> currency) {
       this.accountId = accountId;
       this.userId = userId;
@@ -31,7 +30,6 @@ public class Account {
       this.IBAN = IBAN;
       this.accountType = accountType;
       this.accountStatus = accountStatus;
-      this.accountAmount = accountAmount;
       this.expiryDate = expiryDate;
       this.createdDate = createdDate;
       this.currency = currency;
@@ -78,14 +76,6 @@ public class Account {
 
    public void setAccountStatus(String accountStatus) {
       this.accountStatus = accountStatus;
-   }
-
-   public double getAccountAmount() {
-      return accountAmount;
-   }
-
-   public void setAccountAmount(double accountAmount) {
-      this.accountAmount = accountAmount;
    }
 
    public Date getExpiryDate() {

@@ -18,7 +18,6 @@ public class AccountMapper implements RowMapper<Account> {
                 rs.getString("IBAN"),
                 rs.getString("account_type"),
                 rs.getString("account_status"),
-                rs.getDouble("account_amount"),
                 rs.getDate("expiry_date"),
                 rs.getDate("created_date"),
                 new ArrayList<>()

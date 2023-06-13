@@ -1,0 +1,65 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+
+    <changeSet id="insert values into transaction account1" author="Dev_trans_account">
+        <insert tableName="transaction_account">
+            <column name="transaction_account_id" value="1"/>
+            <column name="account_id" value="1"/>
+            <column name="card_number" type="5473 9231 1256 1743"/>
+            <column name="card_vendor_type" type="VISA"/>
+            <column name="card_currency_type" type="MDL"/>
+            <column name="account_amount" type="45000.00"/>
+            <column name="IBAN" value="86293473925"/>
+            <column name="bank_name" value="MoldovaBank"/>
+            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
+            <column name="BIC" value="785971829"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into transaction account2" author="Dev_trans_account">
+        <insert tableName="transaction_account">
+            <column name="transaction_account_id" value="2"/>
+            <column name="account_id" value="2"/>
+            <column name="card_number" type="8464 7125 7344 1257"/>
+            <column name="card_vendor_type" type="MASTER"/>
+            <column name="card_currency_type" type="MDL"/>
+            <column name="account_amount" type="3523.12"/>
+            <column name="IBAN" value="82203920482"/>
+            <column name="bank_name" value="MoldovaBank"/>
+            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
+            <column name="BIC" value="785971829"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into transaction account3" author="Dev_trans_account">
+        <insert tableName="transaction_account">
+            <column name="transaction_account_id" value="3"/>
+            <column name="account_id" value="3"/>
+            <column name="card_number" type="6155 2251 7367 1543"/>
+            <column name="card_vendor_type" type="VISA"/>
+            <column name="card_currency_type" type="MDL"/>
+            <column name="account_amount" type="1382.35"/>
+            <column name="IBAN" value="85239477939239"/>
+            <column name="bank_name" value="MoldovaBank"/>
+            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
+            <column name="BIC" value="785971829"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into transaction account4" author="Dev_trans_account">
+        <insert tableName="transaction_account">
+            <column name="transaction_account_id" value="4"/>
+            <column name="account_id" value="4"/>
+            <column name="card_number" type="5473 9231 1256 1743"/>
+            <column name="card_vendor_type" type="VISA"/>
+            <column name="card_currency_type" type="MDL"/>
+            <column name="account_amount" type="19343.45"/>
+            <column name="IBAN" value="48249834923"/>
+            <column name="bank_name" value="MoldovaBank"/>
+            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
+            <column name="BIC" value="785971829"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

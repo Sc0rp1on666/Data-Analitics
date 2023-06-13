@@ -4,4 +4,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
     <include file="classpath:create/changelog1-0.xml" />
     <include file="classpath:create/changelog1-1.xml"/>
+    <include file="classpath:create/changelog1-2.xml"/>
+    <include file="classpath:create/changelog1-3.xml"/>
+    <include file="classpath:create/changelog1-4.xml"/>
 </databaseChangeLog>

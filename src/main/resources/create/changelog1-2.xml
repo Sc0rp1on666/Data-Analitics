@@ -1,0 +1,95 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+
+    <changeSet id="insert value into role 1" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="1"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 2" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="2"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="2"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 3" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="3"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="3"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 4" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="4"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 5" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="5"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="5"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 6" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="6"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="6"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 7" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="7"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="7"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 7" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="7"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="7"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 8" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="8"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="8"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert value into role 9" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="9"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="9"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert value into role 10" author="Dev_user">
+        <insert tableName="role">
+            <column name="user_role_id" type="int" value="10"/>
+            <column name="user_role_name" type="varchar(40)" value="USER"/>
+            <column name="user_id" type="int" value="10"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -20,7 +20,6 @@ public class AccountServiceImpl implements AccountService {
         createdAccount.setIBAN(newAccount.getIBAN());
         createdAccount.setAccountType(newAccount.getAccountType());
         createdAccount.setAccountStatus(newAccount.getAccountStatus());
-        createdAccount.setAccountAmount(newAccount.getAccountAmount());
         createdAccount.setExpiryDate(newAccount.getExpiryDate());
         accountDao.create(createdAccount);
         return createdAccount;

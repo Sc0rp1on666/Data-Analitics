@@ -5,6 +5,7 @@ import com.data.dao.mappers.TransactionAccountMapper;
 import com.data.entity.TransactionAccount;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collections;
 import java.util.List;
-
+@Repository
 public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionAccount> implements TransactionAccountDao {
     public TransactionAccountDaoImpl(DataSource dataSource) {
         super(dataSource);
@@ -53,17 +54,19 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     @Override
     public TransactionAccount create(TransactionAccount transactionAccount) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO transaction_account VALUES(default , ? , ? , ? , ? , ? , ? , ?) ";
+        String query = "INSERT INTO transaction_account VALUES(default , ? , ? , ?, ? , ? , ? , ? , ? , ?) ";
             try{
                 getJdbcTemplate().update(con -> {
                     PreparedStatement prepstm= con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                     prepstm.setInt(1,transactionAccount.getAccountId());
                     prepstm.setLong(2,transactionAccount.getCardNumber());
                     prepstm.setString(3,transactionAccount.getCardVendorType());
-                    prepstm.setString(4,transactionAccount.getIBAN());
-                    prepstm.setString(5,transactionAccount.getBankName());
-                    prepstm.setString(6,transactionAccount.getBankAddress());
-                    prepstm.setString(7,transactionAccount.getBIC());
+                    prepstm.setString(4,transactionAccount.getCardCurrencyType());
+                    prepstm.setDouble(5,transactionAccount.getAccountAmount());
+                    prepstm.setString(6,transactionAccount.getIBAN());
+                    prepstm.setString(7,transactionAccount.getBankName());
+                    prepstm.setString(8,transactionAccount.getBankAddress());
+                    prepstm.setString(9,transactionAccount.getBIC());
                     return prepstm;
                 },keyHolder);
             }catch (SQLException ex){
@@ -74,13 +77,15 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
 
     @Override
     public void update(TransactionAccount transactionAccount, int transactionAccountId) {
-    String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? IBAN=? bank_name=? " +
-            "bank_address=? BIC=? WHERE transaction_account_id=?";
+    String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? card_currency_type=?" +
+            " account_amount=? IBAN=? bank_name=? bank_address=? BIC=? WHERE transaction_account_id=?";
         try{
             getJdbcTemplate().update(query,
                     transactionAccount.getAccountId(),
                     transactionAccount.getCardNumber(),
                     transactionAccount.getCardVendorType(),
+                    transactionAccount.getCardCurrencyType(),
+                    transactionAccount.getAccountAmount(),
                     transactionAccount.getIBAN(),
                     transactionAccount.getBankName(),
                     transactionAccount.getBankAddress(),

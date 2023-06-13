@@ -44,9 +44,9 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void transferFundsToAnotherAccount(FundsTransferDTO fundsTransferDTO) {
-      List<Account> senderAccount= accountDao.getUserAccount(fundsTransferDTO.getCurrentUserId());
-       TransactionAccount transactionAccount= transactionAccountDao.getTransactionAccountByCardNumber(fundsTransferDTO.getCardNumber());
+    public void transferFundsToAnotherAccount(Transaction transaction) {
+      List<Account> senderAccount= accountDao.getUserAccount(transaction.getSenderAccount().getAccountId());
+       TransactionAccount transactionAccount= transactionAccountDao.getTransactionAccountByCardNumber(transaction.getReceiverAccount().getCardNumber());
 
     }
 }
