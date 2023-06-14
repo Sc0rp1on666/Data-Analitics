@@ -1,17 +1,17 @@
 package com.data.service.ServiceInterfaces;
 
-import com.data.DtoObjects.FundsTransferDTO;
+import com.data.DtoObjects.DemoFundsTransferDTO;
 import com.data.entity.Page;
 import com.data.entity.Transaction;
 
 public interface TransactionService {
-    public Page<Transaction> getPagedTransactions(int elementsPerPage,int pageIndex);
+    Page<Transaction> getPagedTransactions(int elementsPerPage,int pageIndex);
 
-    public Transaction getTransactionById(int transactionId);
+    Transaction getTransactionById(int transactionId);
 
-    public Page<Transaction> getTransactionHistoryByTransactionAccount(int transactionAccountId, int elementsPerPage, int pageIndex);
+    Page<Transaction> getTransactionHistoryByTransactionAccount(int transactionAccountId, int elementsPerPage, int pageIndex);
 
-    public Transaction createNewTransaction(Transaction transaction);
+    Transaction createNewTransaction(Transaction transaction);
 
-    public void transferFundsToAnotherAccount(Transaction transaction);
+    String transferFundsToAnotherAccount(DemoFundsTransferDTO transfer);
 }

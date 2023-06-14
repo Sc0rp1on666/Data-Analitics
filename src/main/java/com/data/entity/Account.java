@@ -16,6 +16,7 @@ public class Account {
    //TODO: account amount not needed if there is a list of currency
    private Date expiryDate;
    private Date createdDate;
+   // the money should be deposit in account and currency
 
 //account currency should be separate entity, review about conversion, should be a list of currency
    private List<Currency> currency;

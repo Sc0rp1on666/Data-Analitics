@@ -1,18 +1,16 @@
 package com.data.entity;
 
-
+//entity info about sending and receiving funds
 public class TransactionAccount {
     private int transactionAccountId;
     //not needed
     //remade fullName to accountId
     private int accountId;
-
     private long cardNumber;
+    //remove account amount and card Currency type
     private String cardVendorType;
-
     private String cardCurrencyType;
     private double accountAmount;
-    //TODO: add bank card number and bank card vendor(can have multiple cards with multiple vendors)
     private String IBAN;
     private String bankName;
     private String bankAddress;

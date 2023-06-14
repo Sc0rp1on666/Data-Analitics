@@ -7,10 +7,10 @@
         <insert tableName="transaction_account">
             <column name="transaction_account_id" value="1"/>
             <column name="account_id" value="1"/>
-            <column name="card_number" type="5473 9231 1256 1743"/>
-            <column name="card_vendor_type" type="VISA"/>
-            <column name="card_currency_type" type="MDL"/>
-            <column name="account_amount" type="45000.00"/>
+            <column name="card_number" value="5473923112561743"/>
+            <column name="card_vendor_type" value="VISA"/>
+            <column name="card_currency_type" value="MDL"/>
+            <column name="account_amount" value="45000.00"/>
             <column name="IBAN" value="86293473925"/>
             <column name="bank_name" value="MoldovaBank"/>
             <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
@@ -22,10 +22,10 @@
         <insert tableName="transaction_account">
             <column name="transaction_account_id" value="2"/>
             <column name="account_id" value="2"/>
-            <column name="card_number" type="8464 7125 7344 1257"/>
-            <column name="card_vendor_type" type="MASTER"/>
-            <column name="card_currency_type" type="MDL"/>
-            <column name="account_amount" type="3523.12"/>
+            <column name="card_number" value="8464712573441257"/>
+            <column name="card_vendor_type" value="MASTER"/>
+            <column name="card_currency_type" value="MDL"/>
+            <column name="account_amount" value="3523.12"/>
             <column name="IBAN" value="82203920482"/>
             <column name="bank_name" value="MoldovaBank"/>
             <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
@@ -37,10 +37,10 @@
         <insert tableName="transaction_account">
             <column name="transaction_account_id" value="3"/>
             <column name="account_id" value="3"/>
-            <column name="card_number" type="6155 2251 7367 1543"/>
-            <column name="card_vendor_type" type="VISA"/>
-            <column name="card_currency_type" type="MDL"/>
-            <column name="account_amount" type="1382.35"/>
+            <column name="card_number" value="6155225173671543"/>
+            <column name="card_vendor_type" value="VISA"/>
+            <column name="card_currency_type" value="MDL"/>
+            <column name="account_amount" value="1382.35"/>
             <column name="IBAN" value="85239477939239"/>
             <column name="bank_name" value="MoldovaBank"/>
             <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
@@ -52,10 +52,10 @@
         <insert tableName="transaction_account">
             <column name="transaction_account_id" value="4"/>
             <column name="account_id" value="4"/>
-            <column name="card_number" type="5473 9231 1256 1743"/>
-            <column name="card_vendor_type" type="VISA"/>
-            <column name="card_currency_type" type="MDL"/>
-            <column name="account_amount" type="19343.45"/>
+            <column name="card_number" value="5473923112561743"/>
+            <column name="card_vendor_type" value="VISA"/>
+            <column name="card_currency_type" value="MDL"/>
+            <column name="account_amount" value="19343.45"/>
             <column name="IBAN" value="48249834923"/>
             <column name="bank_name" value="MoldovaBank"/>
             <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>

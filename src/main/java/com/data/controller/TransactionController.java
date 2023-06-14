@@ -1,6 +1,6 @@
 package com.data.controller;
 
-import com.data.DtoObjects.FundsTransferDTO;
+import com.data.DtoObjects.DemoFundsTransferDTO;
 import com.data.entity.Page;
 import com.data.entity.Transaction;
 import com.data.service.ServiceInterfaces.TransactionService;
@@ -24,7 +24,7 @@ public class TransactionController {
     public Page<Transaction> getTransactionHistoryByTransactionAccount(@RequestParam("transactionAccountId") int transactionAccountId,
                                                                        @RequestParam("elementsPerPage") int elementsPerPage,
                                                                        @RequestParam("pageIndex") int pageIndex) {
-        return getTransactionHistoryByTransactionAccount(transactionAccountId, elementsPerPage, pageIndex);
+        return transactionService.getTransactionHistoryByTransactionAccount(transactionAccountId, elementsPerPage, pageIndex);
     }
 
     @PostMapping("/newTransaction")
@@ -37,9 +37,11 @@ public class TransactionController {
         return transactionService.getTransactionById(transactionId);
     }
 //the object should be an transaction with some information filled in,
+// review this as the fields are transactionAccount for both sender and receiver, and it gives an error
+    //TODO: constraint for
     @PostMapping("/transferFunds")
-    public ResponseEntity transferFundsToAnotherAccount(@RequestBody Transaction transaction){
-         transactionService.transferFundsToAnotherAccount(transaction);
-         return ResponseEntity.ok("Transaction succeeded");
+    public ResponseEntity transferFundsToAnotherAccount(@RequestBody DemoFundsTransferDTO transfer){
+        String message= transactionService.transferFundsToAnotherAccount(transfer);
+         return ResponseEntity.ok(message);
     }
 }

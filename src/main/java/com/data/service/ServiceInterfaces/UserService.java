@@ -6,6 +6,6 @@ import com.data.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public Page<User> getAllUsers(int elementsPerPage, int pageIndex);
+    Page<User> getAllUsers(int elementsPerPage, int pageIndex);
 
 }

@@ -4,7 +4,9 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
     <changeSet id="create user entity" author="Dev_user">
         <createTable tableName="user">
-            <column name="user_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="user_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="idnp" type="varchar(13)"/>
             <column name="seria" type="varchar(9)"/>
             <column name="first_name" type="varchar(40)"/>
@@ -20,7 +22,9 @@
 
     <changeSet id="create role entity" author="Dev_role">
         <createTable tableName="role">
-            <column name="user_role_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="user_role_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="user_role_name" type="varchar(40)"/>
             <column name="user_id" type="int"/>
         </createTable>
@@ -28,7 +32,9 @@
 
     <changeSet id="create audit entity" author="Dev_Audit">
         <createTable tableName="audit">
-            <column name="audit_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="audit_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="operation_name" type="varchar(40)"/>
             <column name="initial_value" type="varchar(40)"/>
             <column name="changed_value" type="varchar(40)"/>
@@ -41,7 +47,9 @@
 
     <changeSet id="create currency entity" author="Dev_currency">
         <createTable tableName="currency">
-            <column name="currency_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="currency_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="first_currency" type="varchar(4)"/>
             <column name="second_currency" type="varchar(4)"/>
             <column name="exchange_rate" type="double"/>
@@ -50,7 +58,9 @@
 
     <changeSet id="create custom configuration entity" author="Dev_config">
         <createTable tableName="custom_configuration">
-            <column name="configuration_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="configuration_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="configuration_name" type="varchar(40)"/>
             <column name="configuration_value" type="int"/>
         </createTable>
@@ -58,7 +68,9 @@
 
     <changeSet id="create transaction entity" author="Dev_transaction">
         <createTable tableName="transaction">
-            <column name="transaction_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="transaction_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="transaction_type" type="varchar(20)"/>
             <column name="transaction_status" type="varchar(20)"/>
             <column name="transaction_sender_account_id" type="int"/>
@@ -70,7 +82,9 @@
 
     <changeSet id="create transaction account entity" author="Dev_trans_account">
         <createTable tableName="transaction_account">
-            <column name="transaction_account_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="transaction_account_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="account_id" type="int"/>
             <column name="card_number" type="varchar(40)"/>
             <column name="card_vendor_type" type="varchar(40)"/>
@@ -85,7 +99,9 @@
 
     <changeSet id="create account entity" author="Dev_account">
         <createTable tableName="account">
-            <column name="account_id" type="int" autoIncrement="${autoIncrement}"/>
+            <column name="account_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="user_id" type="int"/>
             <column name="IBAN" type="varchar(40)"/>
             <column name="account_type" type="varchar(30)"/>
@@ -95,33 +111,33 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="add unique key to user" author="Dev_user">
-        <addUniqueConstraint tableName="user" columnNames="user_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to user" author="Dev_user">-->
+<!--        <addUniqueConstraint tableName="user" columnNames="user_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to role entity" author="Dev_role">
-        <addUniqueConstraint tableName="role" columnNames="user_role_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to role entity" author="Dev_role">-->
+<!--        <addUniqueConstraint tableName="role" columnNames="user_role_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to audit entity" author="Dev_audit">
-        <addUniqueConstraint tableName="audit" columnNames="audit_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to audit entity" author="Dev_audit">-->
+<!--        <addUniqueConstraint tableName="audit" columnNames="audit_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to currency entity" author="Dev_currency">
-        <addUniqueConstraint tableName="currency" columnNames="currency_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to currency entity" author="Dev_currency">-->
+<!--        <addUniqueConstraint tableName="currency" columnNames="currency_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to configuration entity" author="Dev_currency">
-        <addUniqueConstraint tableName="custom_configuration" columnNames="configuration_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to configuration entity" author="Dev_currency">-->
+<!--        <addUniqueConstraint tableName="custom_configuration" columnNames="configuration_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to transaction account entity" author="Dev_trans_account">
-        <addUniqueConstraint tableName="transaction_account" columnNames="transaction_account_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to transaction account entity" author="Dev_trans_account">-->
+<!--        <addUniqueConstraint tableName="transaction_account" columnNames="transaction_account_id"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="add unique key to account entity" author="Dev_account">
-        <addUniqueConstraint tableName="account" columnNames="account_id"/>
-    </changeSet>
+<!--    <changeSet id="add unique key to account entity" author="Dev_account">-->
+<!--        <addUniqueConstraint tableName="account" columnNames="account_id"/>-->
+<!--    </changeSet>-->
 
 
 </databaseChangeLog>

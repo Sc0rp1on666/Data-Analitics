@@ -1,7 +1,6 @@
 package com.data.dao.implementation;
 
 import com.data.dao.interfaces.TransactionDao;
-import com.data.dao.mappers.AccountMapper;
 import com.data.dao.mappers.TransactionMapper;
 import com.data.entity.Transaction;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -19,7 +18,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     public TransactionDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
-
+    //most probably will be need to remake this
     @Override
     public List<Transaction> getListOfRecords(int elementsPerPage, int pageIndex) {
        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id ,tr.transaction_amount ,tr.transaction_date, \n"+
@@ -28,9 +27,9 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
                "FROM transaction AS tr \n" +
                "INNER JOIN transaction_account ta ON tr.transaction_sender_account_id=ta.transaction_account_id \n" +
                "INNER JOIN transaction_account ta2 ON tr.transaction_receiver_account_id=ta2.transaction_account_id \n" +
-               "LIMIT=? OFFSET=?";
+               "LIMIT ? OFFSET ?";
        try {
-           return getJdbcTemplate().query(query,new TransactionMapper(),elementsPerPage,pageIndex);
+           return getJdbcTemplate().query(query,new TransactionMapper(),elementsPerPage,(pageIndex - 1) * elementsPerPage);
        }catch (SQLException ex){
            ex.printStackTrace();
        }return Collections.EMPTY_LIST;
@@ -46,7 +45,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
                 "INNER JOIN transaction_account ta2 ON tr.transaction_receiver_account_id=ta2.transaction_account_id \n"+
                 "WHERE tr.transaction_id=?";
         try {
-            getJdbcTemplate().queryForObject(query,new AccountMapper(), id);
+           return getJdbcTemplate().queryForObject(query,new TransactionMapper(), id);
         }catch (SQLException ex){
             ex.printStackTrace();
         }return null;
@@ -100,6 +99,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
 
     @Override
     public List<Transaction> getTransactionHistoryByTransactionAccount(int transactionAccountId) {
+        //for further dev will be needed to remake this
         String query="SELECT * FROM transaction where transaction_sender_account_id=? or transaction_receiver_account_id=?";
         try {
            return getJdbcTemplate().query(query, new TransactionMapper(), transactionAccountId, transactionAccountId);

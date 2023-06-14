@@ -69,50 +69,50 @@
 
     <changeSet id="insert values into user 5" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
-            <column name="idnp" type="varchar(13)" value="1000325231412"/>
-            <column name="seria" type="varchar(9)" value="B0043513"/>
-            <column name="first_name" type="varchar(40)" value="Jason"/>
-            <column name="last_name" type="varchar(40)" value="Statham"/>
-            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
-            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
-            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="user_id" type="int" value="5"/>
+            <column name="idnp" type="varchar(13)" value="200003242132"/>
+            <column name="seria" type="varchar(9)" value="A0013781"/>
+            <column name="first_name" type="varchar(40)" value="Samuel"/>
+            <column name="last_name" type="varchar(40)" value="Jackson"/>
+            <column name="email" type="varchar(40)" value="samuel.jackson@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Tudor Petricanu 3/2"/>
+            <column name="secret_word" type="varchar(40)" value="SayWhatOneMoreTime"/>
             <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
-            <column name="date_of_birth" type="date" value="1976-12-25"/>
-            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+            <column name="date_of_birth" type="date" value="1969-02-12"/>
+            <column name="created_date" type="datetime" value="2022-08-13 14:46:55"/>
         </insert>
     </changeSet>
 
 
     <changeSet id="insert values into user 6" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
-            <column name="idnp" type="varchar(13)" value="1000325231412"/>
-            <column name="seria" type="varchar(9)" value="B0043513"/>
+            <column name="user_id" type="int" value="6"/>
+            <column name="idnp" type="varchar(13)" value="200052331412"/>
+            <column name="seria" type="varchar(9)" value="B0043433"/>
             <column name="first_name" type="varchar(40)" value="Jason"/>
-            <column name="last_name" type="varchar(40)" value="Statham"/>
-            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
-            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
-            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="last_name" type="varchar(40)" value="Mamoa"/>
+            <column name="email" type="varchar(40)" value="jason.mamoa@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Petrarilor 13"/>
+            <column name="secret_word" type="varchar(40)" value="IamAquaMan"/>
             <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
-            <column name="date_of_birth" type="date" value="1976-12-25"/>
-            <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
+            <column name="date_of_birth" type="date" value="1996-10-15"/>
+            <column name="created_date" type="datetime" value="2023-03-04 16:01:45"/>
         </insert>
     </changeSet>
 
 
     <changeSet id="insert values into user 7" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
-            <column name="idnp" type="varchar(13)" value="1000325231412"/>
-            <column name="seria" type="varchar(9)" value="B0043513"/>
-            <column name="first_name" type="varchar(40)" value="Jason"/>
-            <column name="last_name" type="varchar(40)" value="Statham"/>
-            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
-            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
-            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="user_id" type="int" value="7"/>
+            <column name="idnp" type="varchar(13)" value="2000051351252"/>
+            <column name="seria" type="varchar(9)" value="A0000127"/>
+            <column name="first_name" type="varchar(40)" value="Gal"/>
+            <column name="last_name" type="varchar(40)" value="Gadot"/>
+            <column name="email" type="varchar(40)" value="gal.gadot@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Florarilor 12"/>
+            <column name="secret_word" type="varchar(40)" value="WonderWomen"/>
             <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
-            <column name="date_of_birth" type="date" value="1976-12-25"/>
+            <column name="date_of_birth" type="date" value="1987-01-13"/>
             <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
         </insert>
     </changeSet>
@@ -120,14 +120,14 @@
 
     <changeSet id="insert values into user 8" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
+            <column name="user_id" type="int" value="8"/>
             <column name="idnp" type="varchar(13)" value="1000325231412"/>
             <column name="seria" type="varchar(9)" value="B0043513"/>
-            <column name="first_name" type="varchar(40)" value="Jason"/>
-            <column name="last_name" type="varchar(40)" value="Statham"/>
-            <column name="email" type="varchar(40)" value="jason.statham@gmail.com"/>
-            <column name="address" type="varchar(40)" value="str.Tudor Vladimirescu 4/1"/>
-            <column name="secret_word" type="varchar(40)" value="AdrenalineRush"/>
+            <column name="first_name" type="varchar(40)" value="Christain"/>
+            <column name="last_name" type="varchar(40)" value="Bail"/>
+            <column name="email" type="varchar(40)" value="christian.bail@gmail.com"/>
+            <column name="address" type="varchar(40)" value="str.Moscovei 32/3"/>
+            <column name="secret_word" type="varchar(40)" value="IAmBatman"/>
             <column name="password" type="varchar(256)" value="$2a$07$.GsgrABK6wwRSdKQT2SM7uEsHgZ6/GQNpYOeM8zfhKOgcA9HAsE/u"/>
             <column name="date_of_birth" type="date" value="1976-12-25"/>
             <column name="created_date" type="datetime" value="2023-05-12 9:12:25"/>
@@ -137,7 +137,7 @@
 
     <changeSet id="insert values into user 9" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
+            <column name="user_id" type="int" value="9"/>
             <column name="idnp" type="varchar(13)" value="1000325231412"/>
             <column name="seria" type="varchar(9)" value="B0043513"/>
             <column name="first_name" type="varchar(40)" value="Jason"/>
@@ -154,7 +154,7 @@
 
     <changeSet id="insert values into user 10" author="Dev_user">
         <insert tableName="user">
-            <column name="user_id" type="int" value="4"/>
+            <column name="user_id" type="int" value="10"/>
             <column name="idnp" type="varchar(13)" value="1000325231412"/>
             <column name="seria" type="varchar(9)" value="B0043513"/>
             <column name="first_name" type="varchar(40)" value="Jason"/>

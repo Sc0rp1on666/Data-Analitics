@@ -1,6 +1,7 @@
 package com.data.dao.implementation;
 
 import com.data.dao.interfaces.TransactionAccountDao;
+import com.data.dao.mappers.AccountMapper;
 import com.data.dao.mappers.TransactionAccountMapper;
 import com.data.entity.TransactionAccount;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -17,6 +18,42 @@ import java.util.List;
 public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionAccount> implements TransactionAccountDao {
     public TransactionAccountDaoImpl(DataSource dataSource) {
         super(dataSource);
+    }
+
+    public double retrieveAccountAmount (int transactionAccountId){
+        String query =" SELECT account_amount FROM transaction_account WHERE transaction_account_id=?";
+        try{
+           return getJdbcTemplate().queryForObject(query, double.class, transactionAccountId);
+        }catch (SQLException|NullPointerException ex){
+            ex.printStackTrace();
+        }return 0;
+    }
+
+
+    public void depositMoney(double operationAmount, int transactionAccountId){
+        String query="UPDATE transaction_account SET account_amount= account_amount + ? WHERE transaction_account_id=?";
+        try{
+            getJdbcTemplate().update(query,operationAmount, transactionAccountId);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void withdrawMoney(double operationAmount, int transactionAccountId){
+        String query="UPDATE transaction_account SET account_amount= account_amount - ? WHERE transaction_account_id=?";
+        try{
+            getJdbcTemplate().update(query,operationAmount, transactionAccountId);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public List<TransactionAccount> getAccountTransactionAccounts(int accountId){
+        String query="SELECT * FROM transaction_account WHERE account_id=?";
+        try{
+          return getJdbcTemplate().query(query,new TransactionAccountMapper(), accountId);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }return Collections.EMPTY_LIST;
     }
 
     public TransactionAccount getTransactionAccountByCardNumber(long cardNumber){
@@ -42,7 +79,7 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
 
     @Override
     public TransactionAccount getById(int transactionAccountId) {
-        String query="SELECT * from transaction_account WHERE transaction_account_id";
+        String query="SELECT * from transaction_account WHERE transaction_account_id=?";
         try{
             return getJdbcTemplate().queryForObject(query,new TransactionAccountMapper(), transactionAccountId);
         }catch (SQLException ex){

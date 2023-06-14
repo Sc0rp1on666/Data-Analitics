@@ -13,20 +13,16 @@ public class Transaction {
     //currency type add
     private double transactionAmount;
 
-    //from separate entity
-//    private String CurrencyCode;
-//    private double transactionAmount;
-    //separate entity transaction account, bank related
-//    private String fullName;
-//    private long IBAN;
+    //TODO: add a reason message for transactions
+
     //TODO: add more date in dependency of a status, possible statuses:
     // Invalid or Incomplete, Canceled by customer, refused, order stored(on P2P transfer), authorized, refund ???
     //not enough funds error,saved success, pending
     private Date transactionDate;
-    //audit
-//    private Date lastUpdate;
-//    private String modifiedBy;
 
+
+    public Transaction() {
+    }
 
     public Transaction(long transactionId, String transactionType, String transactionStatus, TransactionAccount senderAccount, TransactionAccount receiverAccount, double transactionAmount, Date transactionDate) {
         this.transactionId = transactionId;
