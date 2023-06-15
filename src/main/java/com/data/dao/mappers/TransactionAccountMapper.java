@@ -14,8 +14,6 @@ public class TransactionAccountMapper implements RowMapper<TransactionAccount> {
                 rs.getInt("account_id"),
                 rs.getLong("card_number"),
                 rs.getString("card_vendor_type"),
-                rs.getString("card_currency_type"),
-                rs.getDouble("account_amount"),
                 rs.getString("IBAN"),
                 rs.getString("bank_name"),
                 rs.getString("bank_address"),

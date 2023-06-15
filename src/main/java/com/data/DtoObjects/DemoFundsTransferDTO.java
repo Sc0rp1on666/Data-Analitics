@@ -1,19 +1,17 @@
 package com.data.DtoObjects;
 
-import java.sql.Date;
-
 public class DemoFundsTransferDTO {
 
     private String transactionType;
     private int senderAccount;
-    private int receiverAccount;
     private double transactionAmount;
+    private long receiverCardNumber;
 
-    public DemoFundsTransferDTO(String transactionType, int senderAccount, int receiverAccount, double transactionAmount) {
+    public DemoFundsTransferDTO(String transactionType, int senderAccount, double transactionAmount, long receiverCardNumber) {
         this.transactionType = transactionType;
         this.senderAccount = senderAccount;
-        this.receiverAccount = receiverAccount;
         this.transactionAmount = transactionAmount;
+        this.receiverCardNumber = receiverCardNumber;
     }
 
     public String getTransactionType() {
@@ -33,14 +31,6 @@ public class DemoFundsTransferDTO {
         this.senderAccount = senderAccount;
     }
 
-    public int getReceiverAccount() {
-        return receiverAccount;
-    }
-
-    public void setReceiverAccount(int receiverAccount) {
-        this.receiverAccount = receiverAccount;
-    }
-
     public double getTransactionAmount() {
         return transactionAmount;
     }
@@ -49,4 +39,11 @@ public class DemoFundsTransferDTO {
         this.transactionAmount = transactionAmount;
     }
 
+    public long getReceiverCardNumber() {
+        return receiverCardNumber;
+    }
+
+    public void setReceiverCardNumber(long receiverCardNumber) {
+        this.receiverCardNumber = receiverCardNumber;
+    }
 }

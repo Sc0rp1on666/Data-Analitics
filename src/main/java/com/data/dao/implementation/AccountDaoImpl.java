@@ -20,6 +20,35 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
         super(dataSource);
     }
 
+
+    public double retrieveAccountAmount (int accountId){
+        String query =" SELECT account_amount FROM account WHERE account_id=?";
+        try{
+            return getJdbcTemplate().queryForObject(query, double.class, accountId);
+        }catch (SQLException|NullPointerException ex){
+            ex.printStackTrace();
+        }return 0;
+    }
+
+
+    public void depositMoney(double operationAmount, int accountId){
+        String query="UPDATE account SET account_amount= account_amount + ? WHERE account_id=?";
+        try{
+            getJdbcTemplate().update(query,operationAmount, accountId);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void withdrawMoney(double operationAmount, int accountId){
+        String query="UPDATE account SET account_amount= account_amount - ? WHERE account_id=?";
+        try{
+            getJdbcTemplate().update(query,operationAmount, accountId);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @Override
     public List<Account> getListOfRecords(int elementsPerPage, int pageIndex) {
         String query = "SELECT * FROM account LIMIT = ? OFFSET = ?";
@@ -40,10 +69,10 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
     }
 
     @Override
-    public Account getById(int id) {
+    public Account getById(int accountId) {
         String query = "SELECT * FROM account WHERE account_id=?";
         try {
-            return getJdbcTemplate().queryForObject(query, new AccountMapper());
+            return getJdbcTemplate().queryForObject(query, new AccountMapper(), accountId);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -53,7 +82,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
     @Override
     public Account create(Account account) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO account VALUES(default , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
+        String query = "INSERT INTO account VALUES(default , ? , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP )";
         try {
             getJdbcTemplate().update(con -> {
                 PreparedStatement prepstm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -61,7 +90,9 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
                 prepstm.setString(2, account.getIBAN());
                 prepstm.setString(3, account.getAccountType());
                 prepstm.setString(4, account.getAccountStatus());
-                prepstm.setDate(5, account.getExpiryDate());
+                prepstm.setString(5,account.getAccountCurrencyType());
+                prepstm.setDouble(6,account.getAccountAmount());
+                prepstm.setDate(7, account.getExpiryDate());
                 return prepstm;
             }, keyHolder);
             return account;
@@ -80,6 +111,8 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
                     account.getIBAN(),
                     account.getAccountType(),
                     account.getAccountStatus(),
+                    account.getAccountCurrencyType(),
+                    account.getAccountAmount(),
                     account.getExpiryDate(),
                     id
             );

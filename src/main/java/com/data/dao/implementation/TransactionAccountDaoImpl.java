@@ -4,6 +4,7 @@ import com.data.dao.interfaces.TransactionAccountDao;
 import com.data.dao.mappers.AccountMapper;
 import com.data.dao.mappers.TransactionAccountMapper;
 import com.data.entity.TransactionAccount;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -19,34 +20,16 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     public TransactionAccountDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
-
-    public double retrieveAccountAmount (int transactionAccountId){
-        String query =" SELECT account_amount FROM transaction_account WHERE transaction_account_id=?";
+    //rethink about this method, account can have multiple transAccounts need to find a way to set the default trans account or smth like that
+    public TransactionAccount getTransactionAccountByAccountId(int accountId){
+        String query="SELECT * FROM transaction_account WHERE account_id=? LIMIT 1";
         try{
-           return getJdbcTemplate().queryForObject(query, double.class, transactionAccountId);
-        }catch (SQLException|NullPointerException ex){
+            return getJdbcTemplate().queryForObject(query, new TransactionAccountMapper(),accountId);
+        }catch (SQLException ex){
             ex.printStackTrace();
-        }return 0;
+        }return null;
     }
 
-
-    public void depositMoney(double operationAmount, int transactionAccountId){
-        String query="UPDATE transaction_account SET account_amount= account_amount + ? WHERE transaction_account_id=?";
-        try{
-            getJdbcTemplate().update(query,operationAmount, transactionAccountId);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void withdrawMoney(double operationAmount, int transactionAccountId){
-        String query="UPDATE transaction_account SET account_amount= account_amount - ? WHERE transaction_account_id=?";
-        try{
-            getJdbcTemplate().update(query,operationAmount, transactionAccountId);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
     public List<TransactionAccount> getAccountTransactionAccounts(int accountId){
         String query="SELECT * FROM transaction_account WHERE account_id=?";
         try{
@@ -60,7 +43,7 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
         String query="SELECT * FROM transaction_account WHERE card_number=?";
         try{
             return getJdbcTemplate().queryForObject(query,new TransactionAccountMapper(), cardNumber);
-        }catch (SQLException ex){
+        }catch (SQLException | EmptyResultDataAccessException ex){
             ex.printStackTrace();
         }return null;
     }
@@ -91,15 +74,13 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     @Override
     public TransactionAccount create(TransactionAccount transactionAccount) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO transaction_account VALUES(default , ? , ? , ?, ? , ? , ? , ? , ? , ?) ";
+        String query = "INSERT INTO transaction_account VALUES(default , ? , ? , ?, ? , ? , ? , ?) ";
             try{
                 getJdbcTemplate().update(con -> {
                     PreparedStatement prepstm= con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                     prepstm.setInt(1,transactionAccount.getAccountId());
                     prepstm.setLong(2,transactionAccount.getCardNumber());
                     prepstm.setString(3,transactionAccount.getCardVendorType());
-                    prepstm.setString(4,transactionAccount.getCardCurrencyType());
-                    prepstm.setDouble(5,transactionAccount.getAccountAmount());
                     prepstm.setString(6,transactionAccount.getIBAN());
                     prepstm.setString(7,transactionAccount.getBankName());
                     prepstm.setString(8,transactionAccount.getBankAddress());
@@ -114,15 +95,13 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
 
     @Override
     public void update(TransactionAccount transactionAccount, int transactionAccountId) {
-    String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? card_currency_type=?" +
-            " account_amount=? IBAN=? bank_name=? bank_address=? BIC=? WHERE transaction_account_id=?";
+    String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? " +
+            " IBAN=? bank_name=? bank_address=? BIC=? WHERE transaction_account_id=?";
         try{
             getJdbcTemplate().update(query,
                     transactionAccount.getAccountId(),
                     transactionAccount.getCardNumber(),
                     transactionAccount.getCardVendorType(),
-                    transactionAccount.getCardCurrencyType(),
-                    transactionAccount.getAccountAmount(),
                     transactionAccount.getIBAN(),
                     transactionAccount.getBankName(),
                     transactionAccount.getBankAddress(),

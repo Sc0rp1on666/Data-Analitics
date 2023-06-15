@@ -11,7 +11,9 @@ public class Transaction {
 
     private TransactionAccount receiverAccount;
     //currency type add
+    private String currencyType;
     private double transactionAmount;
+    private String reasonMessage;
 
     //TODO: add a reason message for transactions
 
@@ -24,13 +26,17 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(long transactionId, String transactionType, String transactionStatus, TransactionAccount senderAccount, TransactionAccount receiverAccount, double transactionAmount, Date transactionDate) {
+    public Transaction(long transactionId, String transactionType, String transactionStatus,
+                       TransactionAccount senderAccount, TransactionAccount receiverAccount,
+                       String currencyType, double transactionAmount, String reasonMessage, Date transactionDate) {
         this.transactionId = transactionId;
         this.transactionType = transactionType;
         this.transactionStatus = transactionStatus;
         this.senderAccount = senderAccount;
         this.receiverAccount = receiverAccount;
+        this.currencyType = currencyType;
         this.transactionAmount = transactionAmount;
+        this.reasonMessage = reasonMessage;
         this.transactionDate = transactionDate;
     }
 
@@ -88,5 +94,21 @@ public class Transaction {
 
     public void setTransactionAmount(double transactionAmount) {
         this.transactionAmount = transactionAmount;
+    }
+
+    public String getCurrencyType() {
+        return currencyType;
+    }
+
+    public void setCurrencyType(String currencyType) {
+        this.currencyType = currencyType;
+    }
+
+    public String getReasonMessage() {
+        return reasonMessage;
+    }
+
+    public void setReasonMessage(String reasonMessage) {
+        this.reasonMessage = reasonMessage;
     }
 }

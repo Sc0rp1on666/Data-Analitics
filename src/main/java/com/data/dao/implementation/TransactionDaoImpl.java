@@ -21,13 +21,13 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     //most probably will be need to remake this
     @Override
     public List<Transaction> getListOfRecords(int elementsPerPage, int pageIndex) {
-       String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id ,tr.transaction_amount ,tr.transaction_date, \n"+
-        "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id , ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC, \n"+
-        "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id , ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
-               "FROM transaction AS tr \n" +
-               "INNER JOIN transaction_account ta ON tr.transaction_sender_account_id=ta.transaction_account_id \n" +
-               "INNER JOIN transaction_account ta2 ON tr.transaction_receiver_account_id=ta2.transaction_account_id \n" +
-               "LIMIT ? OFFSET ?";
+       String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_code \n"+
+                "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id ,ta.card_number as sender_account_card_number, ta.card_vendor_type as sender_account_vendor_type, ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC,\n"+
+                "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id ,ta2.card_number as receiver_account_card_number, ta2.card_vendor_type as receiver_account_vendor_type, ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
+        "FROM transaction AS tr \n"+
+        "INNER JOIN transaction_account ta ON tr.transaction_sender_account_id=ta.transaction_account_id \n"+
+        "INNER JOIN transaction_account ta2 ON tr.transaction_receiver_account_id=ta2.transaction_account_id \n"+
+        "LIMIT ? OFFSET ?";
        try {
            return getJdbcTemplate().query(query,new TransactionMapper(),elementsPerPage,(pageIndex - 1) * elementsPerPage);
        }catch (SQLException ex){
@@ -37,11 +37,11 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
 
     @Override
     public Transaction getById(int id) {
-        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id ,tr.transaction_amount ,tr.transaction_date, \n"+
-                "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id , ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC, \n"+
-                "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id , ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
-                "FROM transaction AS tr \n" +
-                "INNER JOIN transaction_account ta ON tr.transaction_sender_account_id=ta.transaction_account_id \n" +
+        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_code \n"+
+                "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id ,ta.card_number as sender_account_card_number, ta.card_vendor_type as sender_account_vendor_type, ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC,\n"+
+                "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id ,ta2.card_number as receiver_account_card_number, ta2.card_vendor_type as receiver_account_vendor_type, ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
+                "FROM transaction AS tr \n"+
+                "INNER JOIN transaction_account ta ON tr.transaction_sender_account_id=ta.transaction_account_id \n"+
                 "INNER JOIN transaction_account ta2 ON tr.transaction_receiver_account_id=ta2.transaction_account_id \n"+
                 "WHERE tr.transaction_id=?";
         try {
@@ -54,7 +54,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     @Override
     public Transaction create(Transaction transaction) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO transaction VALUES(default, ? , ?, ? , ? , ?,CURRENT_TIMESTAMP)";
+        String query = "INSERT INTO transaction VALUES(default, ? , ?, ? , ? , ? , ? , ?,CURRENT_TIMESTAMP)";
         try{
             getJdbcTemplate().update(con -> {
                 PreparedStatement prepstm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -62,7 +62,9 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
                 prepstm.setString(2,transaction.getTransactionStatus());
                 prepstm.setInt(3,transaction.getSenderAccount().getTransactionAccountId());
                 prepstm.setInt(4,transaction.getReceiverAccount().getTransactionAccountId());
-                prepstm.setDouble(5,transaction.getTransactionAmount());
+                prepstm.setString(5,transaction.getCurrencyType());
+                prepstm.setDouble(6,transaction.getTransactionAmount());
+                prepstm.setString(7,transaction.getReasonMessage());
                 return prepstm;
             },keyHolder);
             return transaction;
@@ -80,7 +82,9 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
                      transaction.getTransactionStatus(),
                      transaction.getReceiverAccount().getTransactionAccountId(),
                      transaction.getReceiverAccount().getTransactionAccountId(),
+                     transaction.getCurrencyType(),
                      transaction.getTransactionAmount(),
+                     transaction.getReasonMessage(),
                      id);
         }catch (SQLException ex){
             ex.printStackTrace();

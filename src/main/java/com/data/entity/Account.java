@@ -6,34 +6,32 @@ import java.util.List;
 
 //TODO: please review SOLID principle in special S, add userId in DB version control
 public class Account {
-    //should be unique based on this ID will be made transaction, read documentation IBAN
    private int accountId;
    private int userId;
    private List<CustomConfiguration> accountConfiguration;
    private String IBAN;
    private String accountType;
    private String accountStatus;
-   //TODO: account amount not needed if there is a list of currency
+   private String accountCurrencyType;
+   private double accountAmount;
    private Date expiryDate;
    private Date createdDate;
    // the money should be deposit in account and currency
 
-//account currency should be separate entity, review about conversion, should be a list of currency
-   private List<Currency> currency;
 
 
    public Account(int accountId, int userId, List<CustomConfiguration> accountConfiguration, String IBAN,
-                  String accountType, String accountStatus, Date expiryDate, Date createdDate,
-                  List<Currency> currency) {
+                  String accountType, String accountStatus, String accountCurrencyType , double accountAmount, Date expiryDate, Date createdDate) {
       this.accountId = accountId;
       this.userId = userId;
       this.accountConfiguration = accountConfiguration;
       this.IBAN = IBAN;
       this.accountType = accountType;
       this.accountStatus = accountStatus;
+      this.accountCurrencyType = accountCurrencyType ;
+      this.accountAmount = accountAmount;
       this.expiryDate = expiryDate;
       this.createdDate = createdDate;
-      this.currency = currency;
    }
 
    public Account() {
@@ -87,20 +85,28 @@ public class Account {
       this.expiryDate = expiryDate;
    }
 
+   public String getAccountCurrencyType() {
+      return accountCurrencyType ;
+   }
+
+   public void setAccountCurrencyType (String accountCurrencyType ) {
+      this.accountCurrencyType  = accountCurrencyType;
+   }
+
+   public double getAccountAmount() {
+      return accountAmount;
+   }
+
+   public void setAccountAmount(double accountAmount) {
+      this.accountAmount = accountAmount;
+   }
+
    public Date getCreatedDate() {
       return createdDate;
    }
 
    public void setCreatedDate(Date createdDate) {
       this.createdDate = createdDate;
-   }
-
-   public List<Currency> getCurrency() {
-      return currency;
-   }
-
-   public void setCurrency(List<Currency> currency) {
-      this.currency = currency;
    }
 
    public List<CustomConfiguration> getAccountConfiguration() {

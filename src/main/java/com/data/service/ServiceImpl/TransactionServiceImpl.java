@@ -1,9 +1,9 @@
 package com.data.service.ServiceImpl;
 
-import com.data.DtoObjects.DemoFundsTransferDTO;
 import com.data.dao.implementation.AccountDaoImpl;
 import com.data.dao.implementation.TransactionAccountDaoImpl;
 import com.data.dao.implementation.TransactionDaoImpl;
+import com.data.entity.Account;
 import com.data.entity.Page;
 import com.data.entity.Transaction;
 import com.data.entity.TransactionAccount;
@@ -40,25 +40,33 @@ public class TransactionServiceImpl implements TransactionService {
        return transactionDao.create(transaction);
     }
 
+    public Boolean cardRecordCheck(long cardNumber){
+        return transactionAccountDao.getTransactionAccountByCardNumber(cardNumber)!=null;
+    }
+
     @Override
-    public String transferFundsToAnotherAccount(DemoFundsTransferDTO transfer) {
-        //first get the account from which funds are retrieved,
-        TransactionAccount senderAccount = transactionAccountDao.getById(transfer.getSenderAccount());
-        TransactionAccount receiverAccount = transactionAccountDao.getById(transfer.getReceiverAccount());
-        Transaction transaction= new Transaction();
-        String message="Empty";
-        //add a failed transaction to DB,
-        if(transfer.getTransactionAmount()>senderAccount.getAccountAmount()) message="Warning insufficient Funds, transaction is declined";
+    public String transferFundsToAnotherAccount(Transaction transfer) {
+        Account senderAccount = accountDao.getById(transfer.getSenderAccount().getAccountId());
+        TransactionAccount receiverTransactionAccount = new TransactionAccount();
+        //TODO: java input validation, spring input validation
+        if(transfer.getTransactionAmount() == 0.00){transfer.setReasonMessage("Please provide proper transfer amount"); return transfer.getReasonMessage();}
+        if(!cardRecordCheck(transfer.getReceiverAccount().getCardNumber())){transfer.setTransactionType("The provided Card Number is invalid or doesn't exist"); return transfer.getReasonMessage();}
+        receiverTransactionAccount= transactionAccountDao.getTransactionAccountByCardNumber(transfer.getReceiverAccount().getCardNumber());
+        Account receiverAccount = accountDao.getById(receiverTransactionAccount.getAccountId());
+        if(transfer.getTransactionAmount()>senderAccount.getAccountAmount())
+        {
+            transfer.setReasonMessage("Warning insufficient Funds, transaction is declined");
+            transfer.setTransactionStatus("REJECTED");
+        }
         else{
-            transactionAccountDao.withdrawMoney(transfer.getTransactionAmount(),senderAccount.getTransactionAccountId());
-            transactionAccountDao.depositMoney(transfer.getTransactionAmount(),receiverAccount.getTransactionAccountId());
-            transaction.setTransactionAmount(transfer.getTransactionAmount());
-            transaction.setSenderAccount(senderAccount);
-            transaction.setReceiverAccount(receiverAccount);
-            transaction.setTransactionStatus("CREATED");
-            transaction.setTransactionType(transfer.getTransactionType());
-            transactionDao.create(transaction);
-            message="Transaction was successful current amount="+ transactionAccountDao.retrieveAccountAmount(senderAccount.getTransactionAccountId());;
-        } return message;
+            accountDao.withdrawMoney(transfer.getTransactionAmount(),senderAccount.getAccountId());
+            accountDao.depositMoney(transfer.getTransactionAmount(),receiverAccount.getAccountId());
+            transfer.setTransactionStatus("CREATED");
+            transfer.setReasonMessage("Transaction was successful current amount="+ accountDao.retrieveAccountAmount(senderAccount.getAccountId()));
+        }
+        transfer.setReceiverAccount(transactionAccountDao.getById(receiverAccount.getAccountId()));
+        transfer.setSenderAccount(transactionAccountDao.getById(senderAccount.getAccountId()));
+        transactionDao.create(transfer);
+        return transfer.getReasonMessage();
     }
 }

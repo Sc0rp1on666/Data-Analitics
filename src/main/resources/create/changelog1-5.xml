@@ -1,0 +1,61 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+
+    <changeSet id="insert values into account1" author="Dev_account">
+        <insert tableName="account">
+            <column name="account_id" value="1"/>
+            <column name="user_id" value="1"/>
+            <column name="IBAN" value="86293473925"/>
+            <column name="account_type" value="CHECKING"/>
+            <column name="account_status" value="ACTIVE"/>
+            <column name="account_currency_type" value="MDL"/>
+            <column name="account_amount" value="45000.00"/>
+            <column name="expiry_date" value="2025-01-01 8:00:00.000"/>
+            <column name="created_date" value="2020-01-01 8:00:00.000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into account2" author="Dev_account">
+        <insert tableName="account">
+            <column name="account_id" value="2"/>
+            <column name="user_id" value="2"/>
+            <column name="IBAN" value="82203920482"/>
+            <column name="account_type" value="CHECKING"/>
+            <column name="account_status" value="ACTIVE"/>
+            <column name="account_currency_type" value="MDL"/>
+            <column name="account_amount" value="3523.12"/>
+            <column name="expiry_date" value="2027-03-15 11:46:13.000"/>
+            <column name="created_date" value="2022-03-15 11:46:13.000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into account3" author="Dev_account">
+        <insert tableName="account">
+            <column name="account_id" value="3"/>
+            <column name="user_id" value="3"/>
+            <column name="IBAN" value="85239477939239"/>
+            <column name="account_type" value="CHECKING"/>
+            <column name="account_status" value="ACTIVE"/>
+            <column name="account_currency_type" value="MDL"/>
+            <column name="account_amount" value="1382.35"/>
+            <column name="expiry_date" value="2026-04-02 17:32:35.000"/>
+            <column name="created_date" value="2021-04-02 17:32:35.000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into account4" author="Dev_account">
+        <insert tableName="account">
+            <column name="account_id" value="4"/>
+            <column name="user_id" value="4"/>
+            <column name="IBAN" value="5473923112561743"/>
+            <column name="account_type" value="CHECKING"/>
+            <column name="account_status" value="ACTIVE"/>
+            <column name="account_currency_type" value="MDL"/>
+            <column name="account_amount" value="19343.45"/>
+            <column name="expiry_date" value="2023-07-22 13:55:53.000"/>
+            <column name="created_date" value="2018-07-22 13:55:53.000"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

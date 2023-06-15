@@ -12,6 +12,6 @@ public interface TransactionService {
     Page<Transaction> getTransactionHistoryByTransactionAccount(int transactionAccountId, int elementsPerPage, int pageIndex);
 
     Transaction createNewTransaction(Transaction transaction);
-
-    String transferFundsToAnotherAccount(DemoFundsTransferDTO transfer);
+    String transferFundsToAnotherAccount(Transaction transfer);
+//    String transferFundsToAnotherAccount(DemoFundsTransferDTO transfer);
 }

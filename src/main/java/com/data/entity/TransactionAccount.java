@@ -9,20 +9,18 @@ public class TransactionAccount {
     private long cardNumber;
     //remove account amount and card Currency type
     private String cardVendorType;
-    private String cardCurrencyType;
-    private double accountAmount;
     private String IBAN;
     private String bankName;
     private String bankAddress;
     private String BIC;
 
-    public TransactionAccount(int transactionAccountId, int accountId, long cardNumber, String cardVendorType, String cardCurrencyType, double accountAmount, String IBAN, String bankName, String bankAddress, String BIC) {
+
+
+    public TransactionAccount(int transactionAccountId, int accountId, long cardNumber, String cardVendorType, String IBAN, String bankName, String bankAddress, String BIC) {
         this.transactionAccountId = transactionAccountId;
         this.accountId = accountId;
         this.cardNumber = cardNumber;
         this.cardVendorType = cardVendorType;
-        this.cardCurrencyType = cardCurrencyType;
-        this.accountAmount = accountAmount;
         this.IBAN = IBAN;
         this.bankName = bankName;
         this.bankAddress = bankAddress;
@@ -30,22 +28,6 @@ public class TransactionAccount {
     }
 
     public TransactionAccount() {
-    }
-
-    public String getCardCurrencyType() {
-        return cardCurrencyType;
-    }
-
-    public void setCardCurrencyType(String cardCurrencyType) {
-        this.cardCurrencyType = cardCurrencyType;
-    }
-
-    public double getAccountAmount() {
-        return accountAmount;
-    }
-
-    public void setAccountAmount(double accountAmount) {
-        this.accountAmount = accountAmount;
     }
 
     public long getCardNumber() {

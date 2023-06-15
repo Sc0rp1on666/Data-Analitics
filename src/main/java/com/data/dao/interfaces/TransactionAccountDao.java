@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface TransactionAccountDao extends GenericOperation<TransactionAccount> {
 
-    public List<TransactionAccount> getAccountTransactionAccounts(int accountId);
+    List<TransactionAccount> getAccountTransactionAccounts(int accountId);
 
-    public void depositMoney(double operationAmount, int transactionAccountId);
+    TransactionAccount getTransactionAccountByAccountId(int accountId);
 
-    public void withdrawMoney(double operationAmount, int transactionAccountId);
+    TransactionAccount getTransactionAccountByCardNumber(long cardNumber);
 }
