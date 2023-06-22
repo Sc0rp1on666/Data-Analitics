@@ -1,6 +1,5 @@
 package com.data.entity;
 
-import java.util.Currency;
 import java.sql.Date;
 import java.util.List;
 

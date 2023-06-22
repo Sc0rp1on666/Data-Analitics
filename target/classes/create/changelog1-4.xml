@@ -10,7 +10,9 @@
             <column name="transaction_status" value="PENDING"/>
             <column name="transaction_sender_account_id" value="1"/>
             <column name="transaction_receiver_account_id" value="2"/>
+            <column name="transaction_currency_type" value="MDL"/>
             <column name="transaction_amount" value="140.22"/>
+            <column name="transaction_reason_message" value="IN PROCESS OF WITHDRAW"/>
             <column name="transaction_date" value="2023-06-03 15:13:12.000"/>
         </insert>
     </changeSet>
@@ -22,7 +24,9 @@
             <column name="transaction_status" value="COMPLETED"/>
             <column name="transaction_sender_account_id" value="3"/>
             <column name="transaction_receiver_account_id" value="4"/>
+            <column name="transaction_currency_type" value="MDL"/>
             <column name="transaction_amount" value="1507.35"/>
+            <column name="transaction_reason_message" value="FUNDS HAVE BEEN TRANSFERRED"/>
             <column name="transaction_date" value="2023-05-04 12:44:35.000"/>
         </insert>
     </changeSet>

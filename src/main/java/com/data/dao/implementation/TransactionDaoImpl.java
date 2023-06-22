@@ -21,7 +21,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     //most probably will be need to remake this
     @Override
     public List<Transaction> getListOfRecords(int elementsPerPage, int pageIndex) {
-       String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_code \n"+
+       String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_message , \n"+
                 "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id ,ta.card_number as sender_account_card_number, ta.card_vendor_type as sender_account_vendor_type, ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC,\n"+
                 "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id ,ta2.card_number as receiver_account_card_number, ta2.card_vendor_type as receiver_account_vendor_type, ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
         "FROM transaction AS tr \n"+
@@ -37,7 +37,7 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
 
     @Override
     public Transaction getById(int id) {
-        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_code \n"+
+        String query = "SELECT tr.transaction_id , tr.transaction_type ,tr.transaction_status ,tr.transaction_sender_account_id ,tr.transaction_receiver_account_id , tr.transaction_currency_type ,tr.transaction_amount ,tr.transaction_date, tr.transaction_reason_message , \n"+
                 "ta.transaction_account_id as sender_account_id, ta.account_id as sender_account_id ,ta.card_number as sender_account_card_number, ta.card_vendor_type as sender_account_vendor_type, ta.IBAN as sender_IBAN, ta.bank_name as sender_bank_name , ta.bank_address as sender_bank_address, ta.BIC as sender_BIC,\n"+
                 "ta2.transaction_account_id as receiver_account_id, ta.account_id as receiver_account_id ,ta2.card_number as receiver_account_card_number, ta2.card_vendor_type as receiver_account_vendor_type, ta.IBAN as receiver_IBAN, ta.bank_name as receiver_bank_name , ta.bank_address as receiver_bank_address, ta.BIC as receiver_BIC \n"+
                 "FROM transaction AS tr \n"+

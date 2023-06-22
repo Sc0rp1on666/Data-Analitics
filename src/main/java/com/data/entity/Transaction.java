@@ -1,5 +1,7 @@
 package com.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Date;
 
 public class Transaction {
@@ -20,6 +22,7 @@ public class Transaction {
     //TODO: add more date in dependency of a status, possible statuses:
     // Invalid or Incomplete, Canceled by customer, refused, order stored(on P2P transfer), authorized, refund ???
     //not enough funds error,saved success, pending
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date transactionDate;
 
 
