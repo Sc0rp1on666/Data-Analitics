@@ -11,4 +11,6 @@ public interface TransactionAccountDao extends GenericOperation<TransactionAccou
     TransactionAccount getTransactionAccountByAccountId(int accountId);
 
     TransactionAccount getTransactionAccountByCardNumber(long cardNumber);
+
+     List<TransactionAccount> getCardInformation(int accountId);
 }

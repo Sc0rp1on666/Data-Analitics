@@ -20,6 +20,16 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     public TransactionAccountDaoImpl(DataSource dataSource) {
         super(dataSource);
     }
+
+    public List<TransactionAccount> getCardInformation(int accountId){
+        String query="SELECT * FROM transaction_account WHERE account_id=?";
+        try{
+            return getJdbcTemplate().query(query, new TransactionAccountMapper(), accountId);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }return Collections.EMPTY_LIST;
+    }
+
     //rethink about this method, account can have multiple transAccounts need to find a way to set the default trans account or smth like that
     public TransactionAccount getTransactionAccountByAccountId(int accountId){
         String query="SELECT * FROM transaction_account WHERE account_id=? LIMIT 1";

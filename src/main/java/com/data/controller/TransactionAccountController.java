@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/transactionAccount")
+@RequestMapping("/transaction-account")
 public class TransactionAccountController {
     @Autowired
     TransactionAccountServiceImpl transactionAccountService;
@@ -19,4 +21,8 @@ public class TransactionAccountController {
         return transactionAccountService.getTransactionAccount(transactionAccountId);
     }
 
+    @GetMapping("/cardInfo")
+    public List<TransactionAccount> getCardInformation(@RequestParam("accountId") int accountId) {
+    return transactionAccountService.getCardInformation(accountId);
+    }
         }

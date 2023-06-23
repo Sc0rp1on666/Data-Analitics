@@ -37,7 +37,9 @@ public class TransactionController {
     }
 
     @PostMapping("/transferFunds")
-    public ResponseEntity transferFundsToAnotherAccount(@RequestBody Transaction transfer){
+    public ResponseEntity transferFundsToAnotherAccount(@RequestBody Transaction transfer)
+    {
+        System.out.println(transfer);
         String message= transactionService.transferFundsToAnotherAccount(transfer);
          return ResponseEntity.ok(message);
     }

@@ -2,31 +2,31 @@ package com.data.entity;
 
 
 public class Currency {
-    //missing S from Solid
+    //missing S from Solid, maybe add an transaction_account_id which belongs to bank for transaction in different currency
     private int currencyId;
-    private String currency;
-    private double amount;
+    private String currencyPair;
+    private double conversionRate;
 
-    public Currency(int currencyId, String currency, double amount) {
+    public Currency(int currencyId, String currencyPair, double conversionRate) {
         this.currencyId = currencyId;
-        this.currency = currency;
-        this.amount = amount;
+        this.currencyPair = currencyPair;
+        this.conversionRate = conversionRate;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getCurrencyPair() {
+        return currencyPair;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCurrencyPair(String currencyPair) {
+        this.currencyPair = currencyPair;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getConversionRate() {
+        return conversionRate;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setConversionRate(double conversionRate) {
+        this.conversionRate = conversionRate;
     }
 
     public int getCurrencyId() {

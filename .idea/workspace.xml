@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8af74c43-250a-4f96-aeac-588654c7f6e2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/CurrencyDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/CurrencyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/CurrencyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionAccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionAccountDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/TransactionAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/TransactionAccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/entity/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/entity/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionAccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionAccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/TransactionAccountDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/TransactionAccountDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/dao/interfaces/TransactionAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/dao/interfaces/TransactionAccountDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionAccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionAccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.data.Main" />
+      <module name="Data" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
