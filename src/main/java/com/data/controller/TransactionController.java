@@ -4,8 +4,12 @@ import com.data.entity.Page;
 import com.data.entity.Transaction;
 import com.data.service.ServiceInterfaces.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RequestMapping("/transaction")
 @RestController
@@ -27,7 +31,7 @@ public class TransactionController {
     }
 
     @PostMapping("/newTransaction")
-    public Transaction createNewTransaction(@RequestBody Transaction transaction) {
+    public Transaction createNewTransaction( @RequestBody Transaction transaction) {
         return transactionService.createNewTransaction(transaction);
     }
 
@@ -36,11 +40,13 @@ public class TransactionController {
         return transactionService.getTransactionById(transactionId);
     }
 
-    @PostMapping("/transferFunds")
-    public ResponseEntity transferFundsToAnotherAccount(@RequestBody Transaction transfer)
+    @PostMapping("/registerTransaction")
+    public ResponseEntity registerTransaction(@Valid @RequestBody Transaction transfer, BindingResult result)
     {
-        System.out.println(transfer);
-        String message= transactionService.transferFundsToAnotherAccount(transfer);
+        if(result.hasErrors()){
+           return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please fill in the necessary fields");
+        }
+        String message= transactionService.registerTransaction(transfer);
          return ResponseEntity.ok(message);
     }
 }

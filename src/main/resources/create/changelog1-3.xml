@@ -46,9 +46,23 @@
         <insert tableName="transaction_account">
             <column name="transaction_account_id" value="4"/>
             <column name="account_id" value="4"/>
-            <column name="card_number" value="5473923112561743"/>
+            <column name="card_number" value="5473923111261743"/>
             <column name="card_vendor_type" value="VISA"/>
             <column name="IBAN" value="48249834923"/>
+            <column name="bank_name" value="MoldovaBank"/>
+            <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
+            <column name="BIC" value="785971829"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="insert values into transaction account5" author="Dev_trans_account">
+        <insert tableName="transaction_account">
+            <column name="transaction_account_id" value="5"/>
+            <column name="account_id" value="5"/>
+            <column name="card_number" value="54738433111261743"/>
+            <column name="card_vendor_type" value="VISA"/>
+            <column name="IBAN" value="4030234012940-"/>
             <column name="bank_name" value="MoldovaBank"/>
             <column name="bank_address" value="str.Bd Mircea cel Batrin 45"/>
             <column name="BIC" value="785971829"/>

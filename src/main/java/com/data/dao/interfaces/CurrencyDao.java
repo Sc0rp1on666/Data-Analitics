@@ -4,5 +4,5 @@ import com.data.entity.Currency;
 
 public interface CurrencyDao extends GenericOperation<Currency>{
 
-     Currency getConversionPair(String conversionPair);
+     Currency getConversionPair(String firstCurrency, String secondCurrency);
 }

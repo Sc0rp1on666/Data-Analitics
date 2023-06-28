@@ -1,8 +1,10 @@
 package com.data.dao.mappers;
 
 import com.data.entity.Transaction;
+import com.data.entity.TransactionStatus;
 import com.data.entity.TransactionAccount;
 import org.springframework.jdbc.core.RowMapper;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

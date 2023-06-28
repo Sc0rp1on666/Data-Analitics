@@ -3,6 +3,7 @@ package com.data.dao.implementation;
 import com.data.dao.interfaces.AccountDao;
 import com.data.dao.mappers.AccountMapper;
 import com.data.entity.Account;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -20,41 +21,54 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
         super(dataSource);
     }
 
+    public Boolean checkIfAccountExist(int accountId){
+        String query="SELECT user_id FROM account WHERE account_id=?";
+        try {
+            return getJdbcTemplate().queryForObject(query,boolean.class,accountId);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
 
     public double retrieveAccountAmount (int accountId){
         String query =" SELECT account_amount FROM account WHERE account_id=?";
         try{
             return getJdbcTemplate().queryForObject(query, double.class, accountId);
-        }catch (SQLException|NullPointerException ex){
+        }catch (SQLException| NullPointerException ex){
             ex.printStackTrace();
         }return 0;
     }
 
 
-    public void depositMoney(double operationAmount, int accountId){
+    public double depositMoney(double operationAmount, int accountId){
         String query="UPDATE account SET account_amount= account_amount + ? WHERE account_id=?";
         try{
             getJdbcTemplate().update(query,operationAmount, accountId);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return 0;
     }
 
-    public void withdrawMoney(double operationAmount, int accountId){
+    public double withdrawMoney(double operationAmount, int accountId){
+        //TODO:remake as should return remaining sum instead of void, for deposit should be the same
         String query="UPDATE account SET account_amount= account_amount - ? WHERE account_id=?";
         try{
             getJdbcTemplate().update(query,operationAmount, accountId);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return 0;
     }
 
     @Override
     public List<Account> getListOfRecords(int elementsPerPage, int pageIndex) {
-        String query = "SELECT * FROM account LIMIT = ? OFFSET = ?";
+        String query = "SELECT * FROM account LIMIT  ? OFFSET  ?";
         try {
             return getJdbcTemplate().query(query, new AccountMapper(), elementsPerPage, (pageIndex - 1) * elementsPerPage);
-        } catch (SQLException ex) {
+        } catch (SQLException | EmptyResultDataAccessException ex) {
             ex.printStackTrace();
         }return Collections.EMPTY_LIST;
     }
@@ -63,7 +77,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
         String query ="SELECT * FROM account WHERE userId=?";
         try{
             return getJdbcTemplate().query(query,new AccountMapper(), userId);
-        }catch (SQLException ex){
+        }catch (SQLException | EmptyResultDataAccessException ex){
             ex.printStackTrace();
         }return Collections.EMPTY_LIST;
     }
@@ -73,7 +87,7 @@ public class AccountDaoImpl extends GenericOperationImpl<Account> implements Acc
         String query = "SELECT * FROM account WHERE account_id=?";
         try {
             return getJdbcTemplate().queryForObject(query, new AccountMapper(), accountId);
-        } catch (SQLException ex) {
+        } catch (SQLException | EmptyResultDataAccessException ex) {
             ex.printStackTrace();
         }
         return null;

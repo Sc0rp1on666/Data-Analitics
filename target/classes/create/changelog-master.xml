@@ -8,4 +8,5 @@
     <include file="classpath:create/changelog1-3.xml"/>
     <include file="classpath:create/changelog1-4.xml"/>
     <include file="classpath:create/changelog1-5.xml"/>
+    <include file="classpath:create/changelog1-6.xml"/>
 </databaseChangeLog>

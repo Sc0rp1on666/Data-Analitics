@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd ">
+
+    <changeSet id="insert values into currency 1" author="Dev_currency">
+        <insert tableName="currency">
+            <column name="currency_id" value="1"/>
+            <column name="first_currency" value="MDL"/>
+            <column name="second_currency" value="USD"/>
+            <column name="exchange_rate" value="0.05589"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert values into currency 2" author="Dev_currency">
+        <insert tableName="currency">
+            <column name="currency_id" value="2"/>
+            <column name="first_currency" value="USD"/>
+            <column name="second_currency" value="MDL"/>
+            <column name="exchange_rate" value="17.89458"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

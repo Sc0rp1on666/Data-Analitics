@@ -20,12 +20,12 @@ public class AccountController {
         return accountService.createAccount(account);
     }
 
-    @GetMapping("/pagedAccounts")
+    @GetMapping("/listOfUserAccounts")
     public Page<Account> getPagedAccounts(@RequestParam("pageIndex") int pageIndex,
                                           @RequestParam("elementsPerPage") int elementsPerPage){
-        return accountService.getPagedAccount(pageIndex,elementsPerPage);
+        return accountService.getPagedAccount(elementsPerPage,pageIndex);
     }
-    //TODO: remake this, make it search by userId, list of accounts based on user(can have several account in diffrent currency and transactions)
+    //TODO: remake this, make it search by userId, list of accounts based on user(can have several account in different currency and transactions)
     @GetMapping("/getById")
     //TODO: make sure that logged user can have access only to his account
     public List<Account> getAccountById(@RequestParam("userId")int userId){

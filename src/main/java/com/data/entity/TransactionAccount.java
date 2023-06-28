@@ -1,13 +1,15 @@
 package com.data.entity;
 
+import javax.validation.constraints.*;
+
 //entity info about sending and receiving funds
 public class TransactionAccount {
     private int transactionAccountId;
-    //not needed
-    //remade fullName to accountId
     private int accountId;
+    @Min(value =16, message = "please enter the correct card number")
+    @Max(value=16,message = "please enter the correct card number")
+    @NotNull
     private long cardNumber;
-    //remove account amount and card Currency type
     private String cardVendorType;
     private String IBAN;
     private String bankName;

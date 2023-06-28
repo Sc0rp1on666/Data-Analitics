@@ -2,6 +2,8 @@ package com.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import java.sql.Date;
 
 public class Transaction {
@@ -10,14 +12,15 @@ public class Transaction {
     private String transactionStatus;
 
     private TransactionAccount senderAccount;
-
+    @Valid
     private TransactionAccount receiverAccount;
     //currency type add
+    @NotNull
     private String currencyType;
+    @DecimalMin(value ="10.0" , message = "The minimal transfer amount is 10")
+    @DecimalMax(value = "1000000.00", message="The max transfer amount is 1000000.0")
     private double transactionAmount;
     private String reasonMessage;
-
-    //TODO: add a reason message for transactions
 
     //TODO: add more date in dependency of a status, possible statuses:
     // Invalid or Incomplete, Canceled by customer, refused, order stored(on P2P transfer), authorized, refund ???

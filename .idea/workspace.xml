@@ -5,29 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8af74c43-250a-4f96-aeac-588654c7f6e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/CurrencyDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/CurrencyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/CurrencyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/data/entity/TransactionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/create/changelog1-6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/configuration/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/configuration/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/controller/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/AccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/AccountDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/CurrencyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/CurrencyDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionAccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionAccountDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/TransactionAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/TransactionAccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/implementation/TransactionDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/CurrencyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/interfaces/CurrencyDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/CurrencyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/CurrencyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/TransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/dao/mappers/TransactionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/data/entity/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/entity/Currency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionAccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionAccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/entity/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/entity/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/entity/TransactionAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/entity/TransactionAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/AccountServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceImpl/TransactionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionAccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/data/service/ServiceInterfaces/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create/changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create/changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create/changelog1-0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create/changelog1-0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create/changelog1-3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create/changelog1-3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create/changelog1-5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create/changelog1-5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/configuration/security/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/configuration/security/SecurityConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/controller/AccountController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/TransactionAccountDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/TransactionAccountDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/data/dao/interfaces/TransactionAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/dao/interfaces/TransactionAccountDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionAccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionAccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/AccountDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/dao/implementation/AccountDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/entity/Currency.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/entity/Currency.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/entity/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/entity/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/entity/TransactionAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/entity/TransactionAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/AccountServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceImpl/TransactionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionAccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/data/service/ServiceInterfaces/TransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/create/changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/create/changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/create/changelog1-0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/create/changelog1-0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/create/changelog1-3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/create/changelog1-3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/create/changelog1-5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/create/changelog1-5.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,36 +57,54 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2RjbeHFooYcFovBNhPptYiz5z1x" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/Data Analitics/src/main/resources/create&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\Data Analitics\src\main\resources\create" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.data.Main" />
-      <module name="Data" />
+      <module name="Data Analitics" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8af74c43-250a-4f96-aeac-588654c7f6e2" name="Changes" comment="" />
+      <created>1687766534798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687766534798</updated>
+    </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/data/controller/TransactionController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -58,4 +58,18 @@
             <column name="created_date" value="2018-07-22 13:55:53.000"/>
         </insert>
     </changeSet>
+
+    <changeSet id="insert values into account5" author="Dev_account">
+        <insert tableName="account">
+            <column name="account_id" value="5"/>
+            <column name="user_id" value="5"/>
+            <column name="IBAN" value="5473923112561743"/>
+            <column name="account_type" value="CHECKING"/>
+            <column name="account_status" value="ACTIVE"/>
+            <column name="account_currency_type" value="USD"/>
+            <column name="account_amount" value="150.45"/>
+            <column name="expiry_date" value="2023-07-22 13:55:53.000"/>
+            <column name="created_date" value="2018-07-22 13:55:53.000"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

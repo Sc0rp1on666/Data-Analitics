@@ -75,7 +75,7 @@
             <column name="transaction_status" type="varchar(20)"/>
             <column name="transaction_sender_account_id" type="int"/>
             <column name="transaction_receiver_account_id" type="int"/>
-            <column name="transaction_currency_type" type="varchar(3)"/>
+            <column name="transaction_currency_type" type="varchar(7)"/>
             <column name="transaction_amount" type="double"/>
             <column name="transaction_reason_message" type="varchar(255)"/>
             <column name="transaction_date" type="date"/>
@@ -106,7 +106,7 @@
             <column name="IBAN" type="varchar(40)"/>
             <column name="account_type" type="varchar(30)"/>
             <column name="account_status" type="varchar(40)"/>
-            <column name="account_currency_type" type="varchar(3)"/>
+            <column name="account_currency_type" type="varchar(6)"/>
             <column name="account_amount" type="double"/>
             <column name="expiry_date" type="date"/>
             <column name="created_date" type="date"/>

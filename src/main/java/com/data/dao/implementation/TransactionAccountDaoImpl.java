@@ -30,12 +30,11 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
         }return Collections.EMPTY_LIST;
     }
 
-    //rethink about this method, account can have multiple transAccounts need to find a way to set the default trans account or smth like that
     public TransactionAccount getTransactionAccountByAccountId(int accountId){
         String query="SELECT * FROM transaction_account WHERE account_id=? LIMIT 1";
         try{
             return getJdbcTemplate().queryForObject(query, new TransactionAccountMapper(),accountId);
-        }catch (SQLException ex){
+        }catch (SQLException | EmptyResultDataAccessException ex){
             ex.printStackTrace();
         }return null;
     }

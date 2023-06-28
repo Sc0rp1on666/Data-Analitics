@@ -54,17 +54,16 @@ public class TransactionDaoImpl extends GenericOperationImpl<Transaction> implem
     @Override
     public Transaction create(Transaction transaction) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "INSERT INTO transaction VALUES(default, ? , ?, ? , ? , ? , ? , ?,CURRENT_TIMESTAMP)";
+        String query = "INSERT INTO transaction VALUES(default, ? , 'CREATED', ? , ? , ? , ? , ?,CURRENT_TIMESTAMP)";
         try{
             getJdbcTemplate().update(con -> {
                 PreparedStatement prepstm = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 prepstm.setString(1,transaction.getTransactionType());
-                prepstm.setString(2,transaction.getTransactionStatus());
-                prepstm.setInt(3,transaction.getSenderAccount().getTransactionAccountId());
-                prepstm.setInt(4,transaction.getReceiverAccount().getTransactionAccountId());
-                prepstm.setString(5,transaction.getCurrencyType());
-                prepstm.setDouble(6,transaction.getTransactionAmount());
-                prepstm.setString(7,transaction.getReasonMessage());
+                prepstm.setInt(2,transaction.getSenderAccount().getTransactionAccountId());
+                prepstm.setInt(3,transaction.getReceiverAccount().getTransactionAccountId());
+                prepstm.setString(4,transaction.getCurrencyType());
+                prepstm.setDouble(5,transaction.getTransactionAmount());
+                prepstm.setString(6,transaction.getReasonMessage());
                 return prepstm;
             },keyHolder);
             return transaction;

@@ -10,9 +10,10 @@ public class CurrencyMapper implements RowMapper<Currency> {
     @Override
     public Currency mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Currency(
-                rs.getInt("currencyId"),
-                rs.getString("currency_pair"),
-                rs.getDouble("conversion_rate")
+                rs.getInt("currency_id"),
+                rs.getString("first_currency"),
+                rs.getString("second_currency"),
+                rs.getDouble("exchange_rate")
         );
     }
 }
