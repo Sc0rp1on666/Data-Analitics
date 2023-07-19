@@ -99,6 +99,12 @@ public class UserDaoImpl extends GenericOperationImpl<User> implements UserDao {
 
     @Override
     public int countAllRecords() {
+        String query = "SELECT count(*) FROM account";
+        try {
+            return getJdbcTemplate().queryForObject(query, Integer.class);
+        } catch (NullPointerException | SQLException ex) {
+            ex.printStackTrace();
+        }
         return 0;
     }
 }

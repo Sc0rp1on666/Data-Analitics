@@ -1,4 +1,4 @@
-//package com.data.configuration.security;
+package com.transaction.configuration.security;//package com.data.configuration.security;
 //
 //import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;

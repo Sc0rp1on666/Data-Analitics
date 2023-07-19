@@ -21,4 +21,15 @@ public class TransactionAccountServiceImpl implements TransactionAccountService 
     public List<TransactionAccount> getCardInformation(int accountId){
         return transactionAccountDao.getCardInformation(accountId);
     }
+    public TransactionAccount getTransactionAccountByCardNumber(long cardNumber){
+        return transactionAccountDao.getTransactionAccountByCardNumber(cardNumber);
+    }
+
+    public Boolean verifyAccountIsBankRegisteredByCardNumber(long cardNumber){
+        return transactionAccountDao.verifyAccountIsBankRegisteredByCardNumber(cardNumber);
+    }
+
+    public Boolean verifyAccountIsBankRegistered(int accountId){
+        return transactionAccountDao.verifyAccountIsBankRegistered(accountId);
+    }
 }

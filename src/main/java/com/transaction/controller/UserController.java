@@ -2,7 +2,6 @@ package com.transaction.controller;
 
 import com.transaction.entity.Page;
 import com.transaction.entity.User;
-
 import com.transaction.service.ServiceInterfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -12,5 +12,9 @@ public interface TransactionAccountDao extends GenericOperation<TransactionAccou
 
     TransactionAccount getTransactionAccountByCardNumber(long cardNumber);
 
-     List<TransactionAccount> getCardInformation(int accountId);
+    List<TransactionAccount> getCardInformation(int accountId);
+
+    Boolean verifyAccountIsBankRegisteredByCardNumber(long cardNumber);
+
+    Boolean verifyAccountIsBankRegistered(int accountId);
 }

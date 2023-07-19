@@ -3,7 +3,9 @@ package com.transaction.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
 public class Transaction {

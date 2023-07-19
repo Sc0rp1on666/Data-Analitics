@@ -41,7 +41,7 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     public List<TransactionAccount> getAccountTransactionAccounts(int accountId){
         String query="SELECT * FROM transaction_account WHERE account_id=?";
         try{
-          return getJdbcTemplate().query(query,new TransactionAccountMapper(), accountId);
+            return getJdbcTemplate().query(query,new TransactionAccountMapper(), accountId);
         }catch (SQLException ex){
             ex.printStackTrace();
         }return Collections.EMPTY_LIST;
@@ -83,28 +83,28 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
     public TransactionAccount create(TransactionAccount transactionAccount) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "INSERT INTO transaction_account VALUES(default , ? , ? , ?, ? , ? , ? , ?) ";
-            try{
-                getJdbcTemplate().update(con -> {
-                    PreparedStatement prepstm= con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-                    prepstm.setInt(1,transactionAccount.getAccountId());
-                    prepstm.setLong(2,transactionAccount.getCardNumber());
-                    prepstm.setString(3,transactionAccount.getCardVendorType());
-                    prepstm.setString(6,transactionAccount.getIBAN());
-                    prepstm.setString(7,transactionAccount.getBankName());
-                    prepstm.setString(8,transactionAccount.getBankAddress());
-                    prepstm.setString(9,transactionAccount.getBIC());
-                    return prepstm;
-                },keyHolder);
-            }catch (SQLException ex){
-                ex.printStackTrace();
-            }
-            return null;
+        try{
+            getJdbcTemplate().update(con -> {
+                PreparedStatement prepstm= con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                prepstm.setInt(1,transactionAccount.getAccountId());
+                prepstm.setLong(2,transactionAccount.getCardNumber());
+                prepstm.setString(3,transactionAccount.getCardVendorType());
+                prepstm.setString(6,transactionAccount.getIBAN());
+                prepstm.setString(7,transactionAccount.getBankName());
+                prepstm.setString(8,transactionAccount.getBankAddress());
+                prepstm.setString(9,transactionAccount.getBIC());
+                return prepstm;
+            },keyHolder);
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public void update(TransactionAccount transactionAccount, int transactionAccountId) {
-    String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? " +
-            " IBAN=? bank_name=? bank_address=? BIC=? WHERE transaction_account_id=?";
+        String query = "UPDATE transaction_account SET account_id=? card_number=? card_vendor_type=? " +
+                " IBAN=? bank_name=? bank_address=? BIC=? WHERE transaction_account_id=?";
         try{
             getJdbcTemplate().update(query,
                     transactionAccount.getAccountId(),
@@ -128,5 +128,26 @@ public class TransactionAccountDaoImpl extends GenericOperationImpl<TransactionA
         }catch (SQLException ex){
             ex.printStackTrace();
         }return 0;
+    }
+
+
+    public Boolean verifyAccountIsBankRegisteredByCardNumber(long cardNumber){
+        String query="SELECT * FROM transaction_account where card_number=?";
+        try {
+            getJdbcTemplate().queryForObject(query, Boolean.class,cardNumber);
+        }catch (SQLException|EmptyResultDataAccessException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    public Boolean verifyAccountIsBankRegistered(int accountId){
+        String query="SELECT * FROM transaction_account where account_id=?";
+        try {
+            getJdbcTemplate().queryForObject(query, Boolean.class,accountId);
+        }catch (SQLException|EmptyResultDataAccessException ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 }

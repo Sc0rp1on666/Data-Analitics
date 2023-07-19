@@ -1,6 +1,8 @@
 package com.transaction.entity;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 //entity info about sending and receiving funds
 public class TransactionAccount {

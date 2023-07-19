@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequestMapping("/transaction")
+@RequestMapping("/com/transaction")
 @RestController
 public class TransactionController {
     @Autowired
@@ -30,6 +30,7 @@ public class TransactionController {
         return transactionService.getTransactionHistoryByTransactionAccount(transactionAccountId, elementsPerPage, pageIndex);
     }
 
+
     @PostMapping("/newTransaction")
     public Transaction createNewTransaction( @RequestBody Transaction transaction) {
         return transactionService.createNewTransaction(transaction);
@@ -40,15 +41,14 @@ public class TransactionController {
         return transactionService.getTransactionById(transactionId);
     }
 
-
     //TODO: create a jar with all entity which will be imported in all project
     @PostMapping("/registerTransaction")
     public ResponseEntity registerTransaction(@Valid @RequestBody Transaction transfer, BindingResult result)
     {
         if(result.hasErrors()){
-           return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please fill in the necessary fields");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please fill in the necessary fields");
         }
         String message= transactionService.registerTransaction(transfer);
-         return ResponseEntity.ok(message);
+        return ResponseEntity.ok(message);
     }
 }

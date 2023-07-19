@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/transaction-account")
 public class TransactionAccountController {
+
     @Autowired
     TransactionAccountServiceImpl transactionAccountService;
 
@@ -23,6 +24,19 @@ public class TransactionAccountController {
 
     @GetMapping("/cardInfo")
     public List<TransactionAccount> getCardInformation(@RequestParam("accountId") int accountId) {
-    return transactionAccountService.getCardInformation(accountId);
+        return transactionAccountService.getCardInformation(accountId);
     }
-        }
+
+    @GetMapping("/getTransactionAccountByCardNumber")
+    public TransactionAccount getTransactionAccountByCardNumber(@RequestParam("cardNumber") long cardNumber){
+        return transactionAccountService.getTransactionAccountByCardNumber(cardNumber);
+    }
+    @GetMapping("/verifyAccountIsBankRegisteredByCardNumber")
+    public Boolean verifyAccountIsBankRegisteredByCardNumber(@RequestParam("cardNumber") long cardNumber){
+        return transactionAccountService.verifyAccountIsBankRegisteredByCardNumber(cardNumber);
+    }
+    @GetMapping("verifyAccountIsBankRegistered")
+    public Boolean verifyAccountIsBankRegistered(@RequestParam("accountId") int accountId){
+        return transactionAccountService.verifyAccountIsBankRegistered(accountId);
+    }
+}

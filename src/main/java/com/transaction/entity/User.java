@@ -121,7 +121,7 @@ public class User {
         this.address = address;
     }
 
-    public java.sql.Date getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 

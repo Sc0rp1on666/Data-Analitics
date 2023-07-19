@@ -11,6 +11,8 @@ public interface AccountService {
 
     public Page<Account> getPagedAccount(int pageIndex, int elementsPerPage);
 
-    public List<Account> getAccountById(int userId);
+    public Account getAccountByID(int accountId);
+
+    public List<Account> getListOfAccountsById(int userId);
 
 }

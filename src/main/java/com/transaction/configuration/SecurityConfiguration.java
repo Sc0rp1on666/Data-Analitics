@@ -1,4 +1,4 @@
-//package com.data.configuration;
+package com.transaction.configuration;//package com.data.configuration;
 //
 //import com.data.configuration.security.JwtTokenFilter;
 //import com.data.configuration.security.JwtTokenProvider;

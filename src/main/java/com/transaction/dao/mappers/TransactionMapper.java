@@ -4,7 +4,6 @@ import com.transaction.entity.Transaction;
 import com.transaction.entity.TransactionAccount;
 import org.springframework.jdbc.core.RowMapper;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 public class TransactionMapper implements RowMapper<Transaction> {

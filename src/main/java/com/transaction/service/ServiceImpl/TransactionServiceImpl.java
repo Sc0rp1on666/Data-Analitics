@@ -9,7 +9,11 @@ import com.transaction.service.ServiceInterfaces.TransactionAccountService;
 import com.transaction.service.ServiceInterfaces.TransactionService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;
 
@@ -155,6 +159,7 @@ public class TransactionServiceImpl implements TransactionService {
         return transfer;
     }
 
+
     @Override
     public String registerTransaction(Transaction transfer) {
         //1:verify if the sender account belongs to our bank
@@ -162,13 +167,27 @@ public class TransactionServiceImpl implements TransactionService {
         //3:if one of the accounts belong to our bank add it in transaction object
         //4:save transaction into DB,
         //5:updates account sum according to transaction
+        TransactionAccount receiverTransactionAccount = transactionAccountDao.getTransactionAccountByCardNumber(transfer.getReceiverAccount().getCardNumber());
+        TransactionAccount senderTransactionAccount = transactionAccountDao.getTransactionAccountByAccountId(transfer.getSenderAccount().getAccountId());
+        transfer.setReceiverAccount(receiverTransactionAccount);
+        transfer.setSenderAccount(senderTransactionAccount);
         transfer.setTransactionType("TRANSFER");
-        transfer = checkIfAccountIsBankRegistered(transfer);
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            String P2PAddress = "http://localhost:8081/transaction/send-object";
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<Transaction> requestEntity = new HttpEntity<>(transfer, headers);
+            ResponseEntity<Transaction> response = restTemplate.exchange(P2PAddress, HttpMethod.POST, requestEntity, Transaction.class);
+            if (response.getStatusCode() == HttpStatus.OK) {
+                System.out.println(transfer.getReasonMessage());
+            }
+        }catch (HttpClientErrorException | HttpServerErrorException ex){
+            ex.printStackTrace();
+        }
         if (Objects.equals(transfer.getReasonMessage(), "Transfer can't be done since both account doesn't exist")) {
             return transfer.getReasonMessage();
         }
-        transfer = saveTransactionIntoDB(transfer);
-        transfer = withdrawAndDepositFunds(transfer);
         return transfer.getReasonMessage();
     }
 }
